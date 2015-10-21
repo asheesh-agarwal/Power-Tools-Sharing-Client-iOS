@@ -25,8 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    self.firstName.delegate = self;
+    self.lastName.delegate = self;
+    self.emailId.delegate = self;
+    self.password.delegate = self;
+    self.confirmPassword.delegate = self;
+        
     self.communicator = [Communicator new];
 }
 
@@ -51,7 +56,7 @@
 - (void)registerUser {
     NSDictionary *requestData = @{@"firstName":self.firstName.text, @"lastName":self.lastName.text, @"emailId":self.emailId.text, @"password":self.password.text, @"confirmPassword":self.confirmPassword.text};
         
-    [self.communicator communicateData:requestData ForURL:@"http://10.128.2.245:8080/registerUser" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:@"http://localhost:8080/registerUser" completion:^(NSDictionary *responseData){
             
         NSLog(@"Reg Response: %@", responseData);
         
@@ -64,6 +69,9 @@
 
 - (void) handleRegistrationResponse: (NSDictionary *) response {
     if([response count] > 0){
+        
+        NSDictionary* userDetails = @{@"userId":[response objectForKey:@"userId"]};
+        
         [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"UserDetails"];
     }
     
@@ -128,6 +136,30 @@
         UITabBarController *tabBarCont = [segue destinationViewController];
         [tabBarCont setSelectedIndex:2];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.firstName) {
+        [textField resignFirstResponder];
+        [self.lastName becomeFirstResponder];
+        
+    } else if (textField == self.lastName) {
+        [textField resignFirstResponder];
+        [self.emailId becomeFirstResponder];
+        
+    } else if (textField == self.emailId) {
+        [textField resignFirstResponder];
+        [self.password becomeFirstResponder];
+        
+    } else if (textField == self.password) {
+        [textField resignFirstResponder];
+        [self.confirmPassword becomeFirstResponder];
+        
+    } else if (textField == self.confirmPassword) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
 }
 
 

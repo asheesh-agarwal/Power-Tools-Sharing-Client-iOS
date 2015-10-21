@@ -21,6 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.emailIdTextField.delegate = self;
+    self.passwordTextField.delegate = self;
+    
     // Do any additional setup after loading the view.
     
     self.communicator = [Communicator new];
@@ -66,7 +70,7 @@
 - (void) loginUser {
     NSDictionary *requestData = @{@"emailId":self.emailIdTextField.text, @"password":self.passwordTextField.text};
     
-    [self.communicator communicateData:requestData ForURL:@"http://10.128.2.245:8080/loginUser" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:@"http://localhost:8080/loginUser" completion:^(NSDictionary *responseData){
         
         NSLog(@"Login Response: %@", responseData);
         
@@ -79,7 +83,10 @@
 
 - (void) handleLoginResponse: (NSDictionary *) response {
     if([response count] > 0){
-        [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"UserDetails"];
+        
+        NSDictionary* userDetails = @{@"userId":[response objectForKey:@"userId"]};
+        
+        [[NSUserDefaults standardUserDefaults] setObject:userDetails forKey:@"UserDetails"];
     }
     
     // Display success message and then take user to Settings page.
@@ -106,5 +113,18 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.emailIdTextField) {
+        [textField resignFirstResponder];
+        [self.passwordTextField becomeFirstResponder];
+    
+    } else if (textField == self.passwordTextField) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
 
 @end
+

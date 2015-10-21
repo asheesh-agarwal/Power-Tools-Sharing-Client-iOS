@@ -12,6 +12,10 @@
 
 - (void) communicateData: (NSDictionary *) data ForURL: (NSString *) url completion: (void (^)(NSDictionary *)) completion {
     
+    // TODO - Check for internet connectivity before sending the request
+    // TODO - Set timeout time before sending the request
+    // TODO - Handle timeout and host not available error
+    
     NSURL *remoteURL = [NSURL URLWithString:url];
     
     NSData *JSONData = [NSJSONSerialization dataWithJSONObject:data options:0 error:NULL];
@@ -26,13 +30,13 @@
         
         NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *) response;
         
-        // ToDo error needs to be checked and displayed accordingly.
+        // TODO error needs to be checked and displayed accordingly.
         // In case of success, show success message
         NSDictionary *responseData;
         
         if(!error && httpResp.statusCode == 200){
             responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-            NSLog(@"Response: %@", responseData);
+            NSLog(@"Communicator Response: %@", responseData);
         }
         
         completion(responseData);

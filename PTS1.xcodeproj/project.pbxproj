@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A630FE561BD73E2400F4EB28 /* MyToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A630FE551BD73E2400F4EB28 /* MyToolDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		A63558821BB2034600C5276C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A63558811BB2034600C5276C /* main.m */; };
 		A63558851BB2034600C5276C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A63558841BB2034600C5276C /* AppDelegate.m */; };
-		A63558881BB2034600C5276C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63558871BB2034600C5276C /* FirstViewController.m */; };
-		A635588B1BB2034600C5276C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A635588A1BB2034600C5276C /* SecondViewController.m */; };
 		A635588E1BB2034600C5276C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A635588C1BB2034600C5276C /* Main.storyboard */; };
 		A63558901BB2034600C5276C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A635588F1BB2034600C5276C /* Assets.xcassets */; };
 		A63558931BB2034600C5276C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63558911BB2034600C5276C /* LaunchScreen.storyboard */; };
 		A635589C1BB204CD00C5276C /* SettingsUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A635589B1BB204CD00C5276C /* SettingsUITableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A639EE3D1BCDE5DA002B1FE6 /* MyToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A639EE3C1BCDE5DA002B1FE6 /* MyToolsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A639EE431BCE0FA1002B1FE6 /* power tool.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A639EE421BCE0FA1002B1FE6 /* power tool.jpeg */; settings = {ASSET_TAGS = (); }; };
 		A64A6F721BB21852008F13B1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F711BB21852008F13B1 /* RegisterViewController.m */; settings = {ASSET_TAGS = (); }; };
 		A64A6F751BB21A90008F13B1 /* Communicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F741BB21A90008F13B1 /* Communicator.m */; settings = {ASSET_TAGS = (); }; };
 		A64A6F791BB2703A008F13B1 /* work-in-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = A64A6F781BB2703A008F13B1 /* work-in-progress.png */; settings = {ASSET_TAGS = (); }; };
@@ -25,23 +26,27 @@
 		A662B1351BB2FB790056B702 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1341BB2FB790056B702 /* help.png */; settings = {ASSET_TAGS = (); }; };
 		A662B1371BB2FBC20056B702 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1361BB2FBC20056B702 /* information.png */; settings = {ASSET_TAGS = (); }; };
 		A662B1391BB2FBDE0056B702 /* faq.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1381BB2FBDE0056B702 /* faq.png */; settings = {ASSET_TAGS = (); }; };
+		A6C1C27F1BD4612A005492A1 /* PublicToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A6C1C2821BD469AF005492A1 /* PublicToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2811BD469AF005492A1 /* PublicToolDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A6C1C2851BD47B9C005492A1 /* AddToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2841BD47B9C005492A1 /* AddToolViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A630FE541BD73E2400F4EB28 /* MyToolDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyToolDetailsViewController.h; sourceTree = "<group>"; };
+		A630FE551BD73E2400F4EB28 /* MyToolDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyToolDetailsViewController.m; sourceTree = "<group>"; };
 		A635587D1BB2034600C5276C /* PTS1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PTS1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63558811BB2034600C5276C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A63558831BB2034600C5276C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A63558841BB2034600C5276C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A63558861BB2034600C5276C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		A63558871BB2034600C5276C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		A63558891BB2034600C5276C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		A635588A1BB2034600C5276C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		A635588D1BB2034600C5276C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A635588F1BB2034600C5276C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A63558921BB2034600C5276C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A63558941BB2034600C5276C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A635589A1BB204CD00C5276C /* SettingsUITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsUITableViewController.h; sourceTree = "<group>"; };
 		A635589B1BB204CD00C5276C /* SettingsUITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsUITableViewController.m; sourceTree = "<group>"; };
+		A639EE3B1BCDE5DA002B1FE6 /* MyToolsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyToolsTableViewController.h; path = ../MyToolsTableViewController.h; sourceTree = "<group>"; };
+		A639EE3C1BCDE5DA002B1FE6 /* MyToolsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyToolsTableViewController.m; path = ../MyToolsTableViewController.m; sourceTree = "<group>"; };
+		A639EE421BCE0FA1002B1FE6 /* power tool.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "power tool.jpeg"; sourceTree = "<group>"; };
 		A64A6F701BB21852008F13B1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		A64A6F711BB21852008F13B1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		A64A6F731BB21A90008F13B1 /* Communicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communicator.h; sourceTree = "<group>"; };
@@ -55,6 +60,12 @@
 		A662B1341BB2FB790056B702 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
 		A662B1361BB2FBC20056B702 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		A662B1381BB2FBDE0056B702 /* faq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = faq.png; sourceTree = "<group>"; };
+		A6C1C27D1BD4612A005492A1 /* PublicToolsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicToolsTableViewController.h; sourceTree = "<group>"; };
+		A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicToolsTableViewController.m; sourceTree = "<group>"; };
+		A6C1C2801BD469AF005492A1 /* PublicToolDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicToolDetailsViewController.h; sourceTree = "<group>"; };
+		A6C1C2811BD469AF005492A1 /* PublicToolDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicToolDetailsViewController.m; sourceTree = "<group>"; };
+		A6C1C2831BD47B9C005492A1 /* AddToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToolViewController.h; sourceTree = "<group>"; };
+		A6C1C2841BD47B9C005492A1 /* AddToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToolViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +102,16 @@
 				A63558841BB2034600C5276C /* AppDelegate.m */,
 				A64A6F731BB21A90008F13B1 /* Communicator.h */,
 				A64A6F741BB21A90008F13B1 /* Communicator.m */,
-				A63558861BB2034600C5276C /* FirstViewController.h */,
-				A63558871BB2034600C5276C /* FirstViewController.m */,
-				A63558891BB2034600C5276C /* SecondViewController.h */,
-				A635588A1BB2034600C5276C /* SecondViewController.m */,
+				A6C1C27D1BD4612A005492A1 /* PublicToolsTableViewController.h */,
+				A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */,
+				A6C1C2801BD469AF005492A1 /* PublicToolDetailsViewController.h */,
+				A6C1C2811BD469AF005492A1 /* PublicToolDetailsViewController.m */,
+				A639EE3B1BCDE5DA002B1FE6 /* MyToolsTableViewController.h */,
+				A639EE3C1BCDE5DA002B1FE6 /* MyToolsTableViewController.m */,
+				A6C1C2831BD47B9C005492A1 /* AddToolViewController.h */,
+				A6C1C2841BD47B9C005492A1 /* AddToolViewController.m */,
+				A630FE541BD73E2400F4EB28 /* MyToolDetailsViewController.h */,
+				A630FE551BD73E2400F4EB28 /* MyToolDetailsViewController.m */,
 				A635589A1BB204CD00C5276C /* SettingsUITableViewController.h */,
 				A635589B1BB204CD00C5276C /* SettingsUITableViewController.m */,
 				A64A6F701BB21852008F13B1 /* RegisterViewController.h */,
@@ -110,6 +127,7 @@
 				A662B12E1BB2FAEF0056B702 /* login.png */,
 				A662B1321BB2FB020056B702 /* logout.png */,
 				A662B1301BB2FAFF0056B702 /* register.png */,
+				A639EE421BCE0FA1002B1FE6 /* power tool.jpeg */,
 				A63558911BB2034600C5276C /* LaunchScreen.storyboard */,
 				A63558941BB2034600C5276C /* Info.plist */,
 				A63558801BB2034600C5276C /* Supporting Files */,
@@ -185,6 +203,7 @@
 			files = (
 				A64A6F791BB2703A008F13B1 /* work-in-progress.png in Resources */,
 				A662B1371BB2FBC20056B702 /* information.png in Resources */,
+				A639EE431BCE0FA1002B1FE6 /* power tool.jpeg in Resources */,
 				A662B1351BB2FB790056B702 /* help.png in Resources */,
 				A662B1331BB2FB020056B702 /* logout.png in Resources */,
 				A662B1311BB2FAFF0056B702 /* register.png in Resources */,
@@ -203,13 +222,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C1C2851BD47B9C005492A1 /* AddToolViewController.m in Sources */,
 				A662B1271BB2F2F80056B702 /* LoginViewController.m in Sources */,
+				A630FE561BD73E2400F4EB28 /* MyToolDetailsViewController.m in Sources */,
 				A635589C1BB204CD00C5276C /* SettingsUITableViewController.m in Sources */,
+				A6C1C2821BD469AF005492A1 /* PublicToolDetailsViewController.m in Sources */,
 				A64A6F751BB21A90008F13B1 /* Communicator.m in Sources */,
-				A635588B1BB2034600C5276C /* SecondViewController.m in Sources */,
 				A63558851BB2034600C5276C /* AppDelegate.m in Sources */,
+				A6C1C27F1BD4612A005492A1 /* PublicToolsTableViewController.m in Sources */,
+				A639EE3D1BCDE5DA002B1FE6 /* MyToolsTableViewController.m in Sources */,
 				A64A6F721BB21852008F13B1 /* RegisterViewController.m in Sources */,
-				A63558881BB2034600C5276C /* FirstViewController.m in Sources */,
 				A63558821BB2034600C5276C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

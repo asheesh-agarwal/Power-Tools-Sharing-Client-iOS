@@ -145,8 +145,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"row %lu", indexPath.row);
-    NSLog(@"indexpath %@", indexPath);
         
     NSNumber *operationNumber = [self.operationDict valueForKey:[self.menu objectAtIndex:indexPath.row]];
     
