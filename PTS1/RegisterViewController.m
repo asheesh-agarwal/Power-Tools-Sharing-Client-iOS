@@ -56,7 +56,7 @@
 - (void)registerUser {
     NSDictionary *requestData = @{@"firstName":self.firstName.text, @"lastName":self.lastName.text, @"emailId":self.emailId.text, @"password":self.password.text, @"confirmPassword":self.confirmPassword.text};
         
-    [self.communicator communicateData:requestData ForURL:@"http://localhost:8080/registerUser" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/registerUser" completion:^(NSDictionary *responseData){
             
         NSLog(@"Reg Response: %@", responseData);
         

@@ -242,7 +242,7 @@
     
     NSDictionary *requestData = @{@"userId":self.userId, @"toolImageName":self.imageName, @"name":self.toolNameTextField.text};
     
-    [self.communicator communicateData:requestData ForURL:@"http://localhost:8080/addTool" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/addTool" completion:^(NSDictionary *responseData){
         
         NSLog(@"Add Tool Response: %@", responseData);
         

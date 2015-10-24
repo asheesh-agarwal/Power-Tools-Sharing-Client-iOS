@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.publicTools = @[@"Asheesh Agarwal", @"Shubhangi Agarwal"];
+    //self.publicTools = @[@"Work In Progress"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -97,14 +97,16 @@
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     
+    if([self.publicTools count] > 0){
+        cell.textLabel.text = [self.publicTools objectAtIndex:indexPath.row];
+        
+        cell.detailTextLabel.text = @"Available";
+        cell.detailTextLabel.textColor = [UIColor blueColor];
+    }
+    
     //NSDictionary* powerTool = [self.publicTools objectAtIndex:indexPath.row];
     
     //cell.textLabel.text = [powerTool valueForKey:@"toolName"];
-    
-    cell.textLabel.text = [self.publicTools objectAtIndex:indexPath.row];
-    
-    cell.detailTextLabel.text = @"Available";
-    cell.detailTextLabel.textColor = [UIColor blueColor];
     
     //cell.imageView.image = ;
     

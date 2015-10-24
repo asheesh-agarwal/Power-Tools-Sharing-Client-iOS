@@ -36,7 +36,7 @@
 
         NSDictionary *requestData = @{@"userId":userId};
         
-        [self.communicator communicateData:requestData ForURL:@"http://localhost:8080/getTools" completion:^(NSDictionary *responseData){
+        [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/getTools" completion:^(NSDictionary *responseData){
             
             self.userTools = [responseData objectForKey:@"powerTools"];
             
@@ -46,11 +46,14 @@
             
             self.userTools = [self.userTools sortedArrayUsingDescriptors:sortDescriptors];
             
-            [self.tableView reloadData];
+            [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
         }];
     }
 }
 
+-(void)updateTableViewData {
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -148,8 +151,6 @@
 
 - (IBAction)refreshButtonPressed:(id)sender {
     [self getToolsForUser];
-        
-    //[self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

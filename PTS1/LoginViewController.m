@@ -70,7 +70,7 @@
 - (void) loginUser {
     NSDictionary *requestData = @{@"emailId":self.emailIdTextField.text, @"password":self.passwordTextField.text};
     
-    [self.communicator communicateData:requestData ForURL:@"http://localhost:8080/loginUser" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/loginUser" completion:^(NSDictionary *responseData){
         
         NSLog(@"Login Response: %@", responseData);
         
