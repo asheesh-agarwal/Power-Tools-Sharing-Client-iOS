@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A630FE561BD73E2400F4EB28 /* MyToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A630FE551BD73E2400F4EB28 /* MyToolDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A630FE561BD73E2400F4EB28 /* MyToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A630FE551BD73E2400F4EB28 /* MyToolDetailsViewController.m */; };
 		A63558821BB2034600C5276C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A63558811BB2034600C5276C /* main.m */; };
 		A63558851BB2034600C5276C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A63558841BB2034600C5276C /* AppDelegate.m */; };
 		A635588E1BB2034600C5276C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A635588C1BB2034600C5276C /* Main.storyboard */; };
 		A63558901BB2034600C5276C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A635588F1BB2034600C5276C /* Assets.xcassets */; };
 		A63558931BB2034600C5276C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63558911BB2034600C5276C /* LaunchScreen.storyboard */; };
-		A635589C1BB204CD00C5276C /* SettingsUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A635589B1BB204CD00C5276C /* SettingsUITableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A639EE3D1BCDE5DA002B1FE6 /* MyToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A639EE3C1BCDE5DA002B1FE6 /* MyToolsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A639EE431BCE0FA1002B1FE6 /* power tool.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A639EE421BCE0FA1002B1FE6 /* power tool.jpeg */; settings = {ASSET_TAGS = (); }; };
-		A64A6F721BB21852008F13B1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F711BB21852008F13B1 /* RegisterViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A64A6F751BB21A90008F13B1 /* Communicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F741BB21A90008F13B1 /* Communicator.m */; settings = {ASSET_TAGS = (); }; };
-		A64A6F791BB2703A008F13B1 /* work-in-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = A64A6F781BB2703A008F13B1 /* work-in-progress.png */; settings = {ASSET_TAGS = (); }; };
-		A662B1271BB2F2F80056B702 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A662B1261BB2F2F80056B702 /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A662B12F1BB2FAEF0056B702 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B12E1BB2FAEF0056B702 /* login.png */; settings = {ASSET_TAGS = (); }; };
-		A662B1311BB2FAFF0056B702 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1301BB2FAFF0056B702 /* register.png */; settings = {ASSET_TAGS = (); }; };
-		A662B1331BB2FB020056B702 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1321BB2FB020056B702 /* logout.png */; settings = {ASSET_TAGS = (); }; };
-		A662B1351BB2FB790056B702 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1341BB2FB790056B702 /* help.png */; settings = {ASSET_TAGS = (); }; };
-		A662B1371BB2FBC20056B702 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1361BB2FBC20056B702 /* information.png */; settings = {ASSET_TAGS = (); }; };
-		A662B1391BB2FBDE0056B702 /* faq.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1381BB2FBDE0056B702 /* faq.png */; settings = {ASSET_TAGS = (); }; };
-		A6C1C27F1BD4612A005492A1 /* PublicToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A6C1C2821BD469AF005492A1 /* PublicToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2811BD469AF005492A1 /* PublicToolDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A6C1C2851BD47B9C005492A1 /* AddToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2841BD47B9C005492A1 /* AddToolViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A635589C1BB204CD00C5276C /* SettingsUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A635589B1BB204CD00C5276C /* SettingsUITableViewController.m */; };
+		A639EE3D1BCDE5DA002B1FE6 /* MyToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A639EE3C1BCDE5DA002B1FE6 /* MyToolsTableViewController.m */; };
+		A639EE431BCE0FA1002B1FE6 /* power tool.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A639EE421BCE0FA1002B1FE6 /* power tool.jpeg */; };
+		A64A6F721BB21852008F13B1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F711BB21852008F13B1 /* RegisterViewController.m */; };
+		A64A6F751BB21A90008F13B1 /* Communicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F741BB21A90008F13B1 /* Communicator.m */; };
+		A64A6F791BB2703A008F13B1 /* work-in-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = A64A6F781BB2703A008F13B1 /* work-in-progress.png */; };
+		A662B1271BB2F2F80056B702 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A662B1261BB2F2F80056B702 /* LoginViewController.m */; };
+		A662B12F1BB2FAEF0056B702 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B12E1BB2FAEF0056B702 /* login.png */; };
+		A662B1311BB2FAFF0056B702 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1301BB2FAFF0056B702 /* register.png */; };
+		A662B1331BB2FB020056B702 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1321BB2FB020056B702 /* logout.png */; };
+		A662B1351BB2FB790056B702 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1341BB2FB790056B702 /* help.png */; };
+		A662B1371BB2FBC20056B702 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1361BB2FBC20056B702 /* information.png */; };
+		A662B1391BB2FBDE0056B702 /* faq.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1381BB2FBDE0056B702 /* faq.png */; };
+		A6C1C27F1BD4612A005492A1 /* PublicToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */; };
+		A6C1C2821BD469AF005492A1 /* PublicToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2811BD469AF005492A1 /* PublicToolDetailsViewController.m */; };
+		A6C1C2851BD47B9C005492A1 /* AddToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2841BD47B9C005492A1 /* AddToolViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -347,6 +347,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cs2048.asheesh.PTS1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -359,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cs2048.asheesh.PTS1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

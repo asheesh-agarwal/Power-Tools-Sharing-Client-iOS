@@ -33,6 +33,38 @@
             endingLineNumber = "59"
             landmarkName = "-registerUser"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RegisterViewController registerUser]"
+                  moduleName = "PTS1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/asheeshagarwal/Documents/ios_workspace/PTS1/PTS1/RegisterViewController.m"
+                  timestampString = "467147599.628513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "668">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[RegisterViewController registerUser]_block_invoke"
+                  moduleName = "PTS1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/asheeshagarwal/Documents/ios_workspace/PTS1/PTS1/RegisterViewController.m"
+                  timestampString = "467147599.628658"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,12 +154,12 @@
                   moduleName = "PTS1"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asheeshagarwal/Documents/ios_workspace/PTS1/PTS1/LoginViewController.m"
-                  timestampString = "467099674.212486"
+                  timestampString = "467147599.631003"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "73"
                   endingLineNumber = "73"
-                  offsetFromSymbolStart = "313">
+                  offsetFromSymbolStart = "340">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -137,12 +169,12 @@
                   moduleName = "PTS1"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asheeshagarwal/Documents/ios_workspace/PTS1/PTS1/LoginViewController.m"
-                  timestampString = "467099674.212905"
+                  timestampString = "467147599.631127"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "73"
                   endingLineNumber = "73"
-                  offsetFromSymbolStart = "43">
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -186,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyToolsTableViewController.m"
-            timestampString = "467099510.580084"
+            timestampString = "467126150.133545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyToolsTableViewController.m"
-            timestampString = "467099566.317177"
+            timestampString = "467126399.585104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -218,12 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyToolsTableViewController.m"
-            timestampString = "467099713.053138"
+            timestampString = "467126150.133545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,12 +282,12 @@
                   moduleName = "PTS1"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asheeshagarwal/Documents/ios_workspace/PTS1/MyToolsTableViewController.m"
-                  timestampString = "467099724.592589"
+                  timestampString = "467147599.634012"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
                   endingLineNumber = "39"
-                  offsetFromSymbolStart = "292">
+                  offsetFromSymbolStart = "324">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -265,14 +297,78 @@
                   moduleName = "PTS1"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asheeshagarwal/Documents/ios_workspace/PTS1/MyToolsTableViewController.m"
-                  timestampString = "467099724.592756"
+                  timestampString = "467147599.634128"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
                   endingLineNumber = "39"
-                  offsetFromSymbolStart = "57">
+                  offsetFromSymbolStart = "80">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyToolsTableViewController.m"
+            timestampString = "467126342.182018"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-prepareForSegue:sender:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyToolsTableViewController.m"
+            timestampString = "467126372.889455"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-didReceiveMemoryWarning"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyToolsTableViewController.m"
+            timestampString = "467126428.426139"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PTS1/LoginViewController.m"
+            timestampString = "467147599.521735"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-loginButtonPressed:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
