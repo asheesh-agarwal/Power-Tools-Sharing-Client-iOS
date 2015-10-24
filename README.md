@@ -41,7 +41,7 @@ Next development interation will include below items:
 * [Project Dashboard](https://waffle.io/asheesh-agarwal/Power-Tools-Sharing)
 
 ### iOS Application Download Link
-* [PTS1.app]()
+* [PTS1.app](https://github.com/asheesh-agarwal/Power-Tools-Sharing-Client-iOS)
 
 To download and install the "Power Tool Sharing" application your iPhone, follow below steps:
 * Download PTS1.app package on your Mac machine. (PTS1.app seems like folder structure but this is the default way of working with iOS applications. XCode generates the .app files which are in itself the application folder containing all the installables.)
