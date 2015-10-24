@@ -16,21 +16,26 @@ individuals are just sharing without asking anything in return, around power too
 ### Current Status
 
 Currently the client application is only supported on iOS devices. The mobile application currently allows user
-to register his account and login to their account so that they can upload their power tools for sharing. 
+to do following things:
+* View public tools (No need of registration or login)
+* Upload New Tools (registration or login required)
+* Register New Account
+* Login to Existing Account
 
 Mobile application calls the RESTful APIs exposed by server for all remote communication.
 
 ### Whats Next
 
 Next development interation will include below items:
-* Support for adding and uploading a power tool from mobile application.
-* Support for marking a power tool loaned.
+* Support for marking a power tool "Unavailable" or "Available"
+* Support for deleting user uploaded tool
 
 ### Technologies Used
 
 * Objective-c - Development language for developing iOS application
-* XCode 7.0.1 - IDE for iOS application development
+* XCode 7.1 - IDE for iOS application development
 * iOS Simulator - Application used for quickly testing iOS application before running on actual device
+* iPhone 5S - Used as base device for developer level testing before releasing to others
 
 ### Project Management
 * [Project Dashboard](https://waffle.io/asheesh-agarwal/Power-Tools-Sharing)
