@@ -16,12 +16,16 @@
 @property Communicator* communicator;
 @property NSArray* userTools;
 
+@property NSString *host;
+
 @end
 
 @implementation MyToolsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.host = @"http://10.0.0.6:8080/getTools";
     
     self.communicator = [Communicator new];
     
@@ -36,7 +40,7 @@
 
         NSDictionary *requestData = @{@"userId":userId};
         
-        [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/getTools" completion:^(NSDictionary *responseData){
+        [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
             
             self.userTools = [responseData objectForKey:@"powerTools"];
             
@@ -126,10 +130,17 @@
         NSDictionary* powerTool = [self.userTools objectAtIndex:indexPath.row];
 
         cell.textLabel.text = [powerTool valueForKey:@"toolname"];
+        NSString *toolStatus = [powerTool valueForKey:@"status"];
         
-        cell.detailTextLabel.text = @"Available";
-        cell.detailTextLabel.textColor = [UIColor blueColor];
-        
+        if ([toolStatus isEqualToString:@"AVAILABLE"]) {
+            cell.detailTextLabel.text = @"Available";
+            cell.detailTextLabel.textColor = [UIColor blueColor];
+            
+        } else {
+            cell.detailTextLabel.text = @"Unavailable";
+            cell.detailTextLabel.textColor = [UIColor redColor];
+        }
+                
         cell.imageView.image = [self getImageFromTempDirWithName: [powerTool valueForKey:@"toolimagename"]];
     }
     
@@ -145,6 +156,10 @@
     NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:imageName] URLByAppendingPathExtension:@"jpg"];
     
     UIImage* image = [UIImage imageWithContentsOfFile:[fileURL path]];
+    
+    if (image == NULL) {
+        image = [UIImage imageNamed:@"question"];
+    }
         
     return image;
 }
@@ -178,6 +193,37 @@
         MyToolDetailsViewController* detailViewController = segue.destinationViewController;
         detailViewController.toolDetails = powerTool;
     }
+}
+
+// This method is linked with unwind segue "BackToMyTools" in MyToolDetailsViewController
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    if ([segue.identifier isEqualToString:@"BackToMyTools"]) {
+        
+        MyToolDetailsViewController *myToolDetailsVC = segue.sourceViewController;
+        
+        if ([myToolDetailsVC.result isEqualToString:@"SUCCESS"]) {
+            [self displayToastMessage:@"Tool deleted successfully"];
+            [self getToolsForUser];
+            
+        } else {
+            [self displayToastMessage:@"Tool cannot be deleted at this time, please try again later"];
+        }
+    }
+}
+
+- (void) displayToastMessage: (NSString *) message {
+    UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:nil, nil];
+    [toast show];
+    
+    int duration = 2; // duration in seconds
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [toast dismissWithClickedButtonIndex:0 animated:YES];
+    });
 }
 
 /*

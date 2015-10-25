@@ -11,5 +11,6 @@
 @interface MyToolDetailsViewController : UIViewController
 
 @property NSDictionary* toolDetails;
+@property NSString* result;
 
 @end

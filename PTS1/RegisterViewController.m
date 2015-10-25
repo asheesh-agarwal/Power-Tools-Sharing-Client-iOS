@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailId;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPassword;
+@property NSString *host;
 
 @property Communicator *communicator;
 
@@ -25,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.host = @"http://10.0.0.6:8080/registerUser";
     
     self.firstName.delegate = self;
     self.lastName.delegate = self;
@@ -56,7 +59,7 @@
 - (void)registerUser {
     NSDictionary *requestData = @{@"firstName":self.firstName.text, @"lastName":self.lastName.text, @"emailId":self.emailId.text, @"password":self.password.text, @"confirmPassword":self.confirmPassword.text};
         
-    [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/registerUser" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
             
         NSLog(@"Reg Response: %@", responseData);
         

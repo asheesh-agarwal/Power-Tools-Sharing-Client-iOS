@@ -15,12 +15,16 @@
 
 @property NSArray* publicTools;
 
+@property NSString *host;
+
 @end
 
 @implementation PublicToolsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.host = @"http://10.0.0.6:8080/getPublicTools";
     
     //self.publicTools = @[@"Work In Progress"];
     
@@ -37,7 +41,7 @@
     
     NSDictionary *requestData = @{@"userId":userId};
     
-    [self.communicator communicateData:requestData ForURL:@"http://10.128.9.127:8080/getPublicTools" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
         
         self.publicTools = [responseData objectForKey:@"powerTools"];
         

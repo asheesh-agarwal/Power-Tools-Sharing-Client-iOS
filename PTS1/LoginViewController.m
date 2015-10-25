@@ -12,6 +12,7 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailIdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property NSString *host;
 
 @property Communicator *communicator;
 
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.host = @"http://10.0.0.6:8080/loginUser";
     
     self.emailIdTextField.delegate = self;
     self.passwordTextField.delegate = self;
@@ -70,7 +73,7 @@
 - (void) loginUser {
     NSDictionary *requestData = @{@"emailId":self.emailIdTextField.text, @"password":self.passwordTextField.text};
     
-    [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/loginUser" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
         
         NSLog(@"Login Response: %@", responseData);
         

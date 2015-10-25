@@ -21,12 +21,16 @@
 @property UIImage* scaledImage;
 @property NSString* imageName;
 
+@property NSString *host;
+
 @end
 
 @implementation AddToolViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.host = @"http://10.0.0.6:8080/addTool";
     
     self.toolNameTextField.delegate = self;
     
@@ -242,7 +246,7 @@
     
     NSDictionary *requestData = @{@"userId":self.userId, @"toolImageName":self.imageName, @"name":self.toolNameTextField.text};
     
-    [self.communicator communicateData:requestData ForURL:@"http://10.128.1.235:8080/addTool" completion:^(NSDictionary *responseData){
+    [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
         
         NSLog(@"Add Tool Response: %@", responseData);
         
