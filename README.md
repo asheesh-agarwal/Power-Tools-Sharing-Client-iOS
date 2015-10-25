@@ -17,8 +17,10 @@ individuals are just sharing without asking anything in return, around power too
 
 Currently the client application is only supported on iOS devices. The mobile application currently allows user
 to do following things:
-* View public tools (No need of registration or login)
+* View Public Tools (No need of registration or login)
+* View My Tools (registration or login required)
 * Upload New Tools (registration or login required)
+* Mark tool as "Unavailable" or "Available" (registration or login required)
 * Register New Account
 * Login to Existing Account
 
@@ -27,8 +29,7 @@ Mobile application calls the RESTful APIs exposed by server for all remote commu
 ### Whats Next
 
 Next development interation will include below items:
-* Support for marking a power tool "Unavailable" or "Available"
-* Support for deleting user uploaded tool
+* UI/UX changes for better usability
 
 ### Technologies Used
 
