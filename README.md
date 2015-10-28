@@ -39,7 +39,7 @@ Next development interation will include below items:
 * iPhone 5S - Used as base device for developer level testing before releasing to others
 
 ### Project Management
-* [Project Dashboard](https://waffle.io/asheesh-agarwal/Power-Tools-Sharing)
+* [Project Dashboard](https://waffle.io/asheesh-agarwal/Power-Tools-Sharing) - This dashboard is current out-of-sync with the current state of this repository due to some technical issues in Waffle. I will look into this and will update this section later.
 
 ### iOS Application Download Link
 * [PTS1.app](https://github.com/asheesh-agarwal/Power-Tools-Sharing-Client-iOS)
