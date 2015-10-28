@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://10.0.0.6:8080/loginUser";
+    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/loginUser";
     
     self.emailIdTextField.delegate = self;
     self.passwordTextField.delegate = self;
@@ -90,10 +90,12 @@
         NSDictionary* userDetails = @{@"userId":[response objectForKey:@"userId"]};
         
         [[NSUserDefaults standardUserDefaults] setObject:userDetails forKey:@"UserDetails"];
+        
+    } else {
+        [self showError:@"Oops, we cannot connect to the server at this time, please try again"];
     }
     
     // Display success message and then take user to Settings page.
-    
     [self performSegueWithIdentifier:@"LoginToSettings" sender:self];
 }
 

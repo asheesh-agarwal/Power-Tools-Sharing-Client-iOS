@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Power Tool Sharing-->
+        <!--My Tools-->
         <scene sceneID="RuQ-K6-V42">
             <objects>
                 <tableViewController id="rfh-fF-icy" customClass="MyToolsTableViewController" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                             <outlet property="delegate" destination="rfh-fF-icy" id="NAK-wQ-09O"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Power Tool Sharing" id="keW-s1-Lsn">
+                    <navigationItem key="navigationItem" title="My Tools" id="keW-s1-Lsn">
                         <barButtonItem key="backBarButtonItem" title="My Tools" id="TSm-1f-xMY"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="refresh" id="nWL-Dg-S0z">
                             <connections>

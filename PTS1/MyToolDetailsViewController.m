@@ -28,8 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.removeToolHost = @"http://10.0.0.6:8080/removeTool";
-    self.updateToolStatusHost = @"http://10.0.0.6:8080/updateToolStatus";
+    self.removeToolHost = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/removeTool";
+    self.updateToolStatusHost = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/updateToolStatus";
     
     self.communicator = [Communicator new];
     
@@ -75,29 +75,36 @@
 }
 
 - (IBAction) changeToolStatus:(id)sender {
-    NSString *userId = [self.toolDetails valueForKey:@"userid"];
-    NSString *toolId = [self.toolDetails valueForKey:@"id"];
-    NSString *toolStatus = [self.toolDetails valueForKey:@"status"];
+    NSDictionary* userDetails = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserDetails"];
     
-    if ([toolStatus isEqualToString:@"AVAILABLE"]) {
-        toolStatus = @"UNAVAILABLE";
+    if (userDetails == nil) {
+        [self showError:@"You need to login before you can change the status of your tool"];
         
     } else {
-        toolStatus = @"AVAILABLE";
+        NSString *userId = [self.toolDetails valueForKey:@"userid"];
+        NSString *toolId = [self.toolDetails valueForKey:@"id"];
+        NSString *toolStatus = [self.toolDetails valueForKey:@"status"];
+        
+        if ([toolStatus isEqualToString:@"AVAILABLE"]) {
+            toolStatus = @"UNAVAILABLE";
+            
+        } else {
+            toolStatus = @"AVAILABLE";
+        }
+        
+        NSDictionary *requestData = @{@"toolId":toolId, @"userId":userId, @"status":toolStatus};
+        
+        [self.communicator communicateData:requestData ForURL:self.updateToolStatusHost completion:^(NSDictionary *responseData){
+            
+            NSLog(@"Change Tool Status Response: %@", responseData);
+            
+            self.result = [responseData valueForKey:@"status"];
+            
+            self.toolDetails = [responseData valueForKey:@"powerTool"];
+            
+            [self performSelectorOnMainThread:@selector(updateScreenData) withObject:nil waitUntilDone:NO];
+        }];
     }
-    
-    NSDictionary *requestData = @{@"toolId":toolId, @"userId":userId, @"status":toolStatus};
-    
-    [self.communicator communicateData:requestData ForURL:self.updateToolStatusHost completion:^(NSDictionary *responseData){
-        
-        NSLog(@"Change Tool Status Response: %@", responseData);
-        
-        self.result = [responseData valueForKey:@"status"];
-        
-        self.toolDetails = [responseData valueForKey:@"powerTool"];
-        
-        [self performSelectorOnMainThread:@selector(updateScreenData) withObject:nil waitUntilDone:NO];
-    }];
 }
 
 - (void) updateScreenData {
@@ -115,20 +122,27 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"TRUE" forKey:@"refresh_mytools"];
 }
 
-- (IBAction)deleteTool:(id)sender {
-    NSString *userId = [self.toolDetails valueForKey:@"userid"];
-    NSString *toolId = [self.toolDetails valueForKey:@"id"];
+- (IBAction) deleteTool:(id)sender {
+    NSDictionary* userDetails = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserDetails"];
     
-    NSDictionary *requestData = @{@"toolId":toolId, @"userId":userId};
-    
-    [self.communicator communicateData:requestData ForURL:self.removeToolHost completion:^(NSDictionary *responseData){
+    if (userDetails == nil) {
+        [self showError:@"You need to login before you can delete your tool"];
         
-        NSLog(@"Delete Tool Response: %@", responseData);
+    } else {
+        NSString *userId = [self.toolDetails valueForKey:@"userid"];
+        NSString *toolId = [self.toolDetails valueForKey:@"id"];
         
-        self.result = [responseData valueForKey:@"status"];
+        NSDictionary *requestData = @{@"toolId":toolId, @"userId":userId};
         
-        [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
-    }];
+        [self.communicator communicateData:requestData ForURL:self.removeToolHost completion:^(NSDictionary *responseData){
+            
+            NSLog(@"Delete Tool Response: %@", responseData);
+            
+            self.result = [responseData valueForKey:@"status"];
+            
+            [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
+        }];
+    }
 }
 
 - (void) updateTableViewData {
@@ -162,6 +176,13 @@
     });
 }
 
+- (void)showError:(NSString*)errorMsg {
+    NSString *msgTitle = @"Error Message";
+    
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:msgTitle message:errorMsg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    
+    [error show];
+}
 
 /*
 #pragma mark - Navigation

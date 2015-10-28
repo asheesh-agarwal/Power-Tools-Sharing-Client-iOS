@@ -15,6 +15,7 @@
 
 @property Communicator* communicator;
 @property NSArray* userTools;
+@property BOOL refreshButtonPressed;
 
 @property NSString *host;
 
@@ -25,7 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://10.0.0.6:8080/getTools";
+    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/getTools";
+    self.refreshButtonPressed = FALSE;
     
     self.communicator = [Communicator new];
     
@@ -52,6 +54,13 @@
             
             [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
         }];
+        
+    } else {
+        if (self.refreshButtonPressed) {
+            self.refreshButtonPressed = FALSE;
+            
+            [self showError:@"You need to login before you can reload your tools"];
+        }
     }
 }
 
@@ -165,6 +174,8 @@
 }
 
 - (IBAction)refreshButtonPressed:(id)sender {
+    self.refreshButtonPressed = TRUE;
+    
     [self getToolsForUser];
 }
 
@@ -192,7 +203,23 @@
         
         MyToolDetailsViewController* detailViewController = segue.destinationViewController;
         detailViewController.toolDetails = powerTool;
+        
     }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    if([identifier isEqualToString:@"AddTool"]) {
+        NSDictionary* userDetails = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserDetails"];
+        
+        if (userDetails == nil) {
+            [self showError:@"You need to login or register before you can add your tool"];
+            
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 // This method is linked with unwind segue "BackToMyTools" in MyToolDetailsViewController
@@ -224,6 +251,14 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [toast dismissWithClickedButtonIndex:0 animated:YES];
     });
+}
+
+- (void)showError:(NSString*)errorMsg {
+    NSString *msgTitle = @"Error Message";
+    
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:msgTitle message:errorMsg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    
+    [error show];
 }
 
 /*

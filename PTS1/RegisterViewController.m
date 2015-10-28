@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://10.0.0.6:8080/registerUser";
+    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/registerUser";
     
     self.firstName.delegate = self;
     self.lastName.delegate = self;
@@ -76,6 +76,9 @@
         NSDictionary* userDetails = @{@"userId":[response objectForKey:@"userId"]};
         
         [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"UserDetails"];
+        
+    } else {
+        [self showError:@"Oops, we cannot connect to the server at this time, please try again"];
     }
     
     // Display success message and then take user to Settings page.

@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://10.0.0.6:8080/addTool";
+    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/addTool";
     
     self.toolNameTextField.delegate = self;
     

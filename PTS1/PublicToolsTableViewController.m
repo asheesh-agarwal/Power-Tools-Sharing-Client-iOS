@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://10.0.0.6:8080/getPublicTools";
+    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/getPublicTools";
     
     //self.publicTools = @[@"Work In Progress"];
     
@@ -67,7 +67,7 @@
         // Display a message when the table is empty
         UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 10, self.view.bounds.size.height)];
         
-        messageLabel.text = @"No tools are available currently near you, try refreshing the page later";
+        messageLabel.text = @"No tools are available currently near you, try refreshing the page";
         messageLabel.textColor = [UIColor blackColor];
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = NSTextAlignmentCenter;

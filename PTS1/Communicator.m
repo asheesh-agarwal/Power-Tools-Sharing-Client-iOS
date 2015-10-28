@@ -37,6 +37,9 @@
         if(!error && httpResp.statusCode == 200){
             responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             NSLog(@"Communicator Response: %@", responseData);
+        
+        } else {
+            NSLog(@"Communicator Error Response: %@", httpResp);
         }
         
         completion(responseData);
