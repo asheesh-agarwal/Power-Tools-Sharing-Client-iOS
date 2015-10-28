@@ -26,7 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/getTools";
+    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/getMyTools";
+    //self.host = @"http://localhost:8080/getMyTools";
+    
     self.refreshButtonPressed = FALSE;
     
     self.communicator = [Communicator new];
@@ -168,8 +170,6 @@
     }
     
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    
-    // TODO based on the status of the tool, set the detailed text color to blue or red.
     
     return cell;
 }

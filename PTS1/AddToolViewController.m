@@ -31,6 +31,7 @@
     [super viewDidLoad];
     
     self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/addTool";
+    //self.host = @"http://localhost:8080/addTool";
     
     self.toolNameTextField.delegate = self;
     

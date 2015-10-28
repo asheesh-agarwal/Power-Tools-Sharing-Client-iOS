@@ -9,9 +9,11 @@
 #import "PublicToolDetailsViewController.h"
 
 @interface PublicToolDetailsViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *toolName;
-@property (weak, nonatomic) IBOutlet UILabel *toolStatus;
-@property (weak, nonatomic) IBOutlet UILabel *toolAddDate;
+@property (weak, nonatomic) IBOutlet UILabel *toolNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *toolImageView;
+@property (weak, nonatomic) IBOutlet UILabel *toolStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *toolDateLabel;
+
 
 @end
 
@@ -19,7 +21,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self configureToolDetails];
+}
+
+- (void) configureToolDetails {
+    self.toolNameLabel.text = [self.toolDetails valueForKey:@"toolname"];
+    self.toolImageView.image = [self getImageFromTempDirWithName: [self.toolDetails valueForKey:@"toolimagename"]];
+    
+    NSNumber *timeInMillis = [self.toolDetails valueForKey:@"creationdate"];
+    NSDate *availableSince = [NSDate dateWithTimeIntervalSince1970:[timeInMillis doubleValue]];
+    
+    self.toolDateLabel.text = availableSince.description;
+    
+    NSLog(@"%@", availableSince);
+    
+    NSString *toolStatus = [self.toolDetails valueForKey:@"status"];
+
+    if ([toolStatus isEqualToString:@"AVAILABLE"]) {
+        self.toolStatusLabel.text = @"Available";
+        self.toolStatusLabel.textColor = [UIColor blueColor];
+        
+        [self.view setBackgroundColor:[[UIColor alloc] initWithRed:1 green:1 blue:1 alpha:1]];
+        
+    } else {
+        self.toolStatusLabel.text = @"Unavailable";
+        self.toolStatusLabel.textColor = [UIColor redColor];
+        
+        [self.view setBackgroundColor:[[UIColor alloc] initWithRed:1 green:0.8 blue:0.8 alpha:1]];
+    }
+}
+
+- (UIImage*) getImageFromTempDirWithName: (NSString* ) imageName {
+    NSURL *tmpDirURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+    NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:imageName] URLByAppendingPathExtension:@"jpg"];
+    
+    UIImage* image = [UIImage imageWithContentsOfFile:[fileURL path]];
+    
+    if (image == NULL) {
+        image = [UIImage imageNamed:@"question"];
+    }
+    
+    return image;
 }
 
 - (void)didReceiveMemoryWarning {

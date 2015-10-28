@@ -10,4 +10,6 @@
 
 @interface PublicToolDetailsViewController : UIViewController
 
+@property NSDictionary* toolDetails;
+
 @end
