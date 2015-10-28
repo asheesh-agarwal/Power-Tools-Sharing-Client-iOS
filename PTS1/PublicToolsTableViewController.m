@@ -73,7 +73,7 @@
         if (self.refreshButtonPressed) {
             self.refreshButtonPressed = FALSE;
             
-            [self showError:@"You need to login before you can reload your tools"];
+            [self showError:@"You need to login before you can reload public tools"];
         }
     }
 }
@@ -123,6 +123,22 @@
     return 0;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *sectionName;
+    
+    switch (section){
+            
+        case 0:
+            sectionName = @"Public Tools";
+            break;
+            
+        default:
+            sectionName = @"";
+            break;
+    }
+    
+    return sectionName;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tools"];
