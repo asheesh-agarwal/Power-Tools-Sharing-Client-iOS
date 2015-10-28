@@ -213,14 +213,6 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)showError:(NSString*)errorMsg {
-    NSString *msgTitle = @"Error Message";
-    
-    UIAlertView *error = [[UIAlertView alloc] initWithTitle:msgTitle message:errorMsg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
-    
-    [error show];
-}
-
 - (void) enableDoneBarButton {
     [self.donebarButton setEnabled:TRUE];
 }
@@ -259,13 +251,20 @@
 
 - (void) handleAddToolResponse: (NSDictionary *) response {
     if([response count] > 0){
-        // Show toast message
+        
+        NSString *status = [response objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"SUCCESS"]) {
+            [self displayToastMessage:@"Tool added successfully"];
+            
+        } else {
+            NSString *errorMessage = [response objectForKey:@"errorMessage"];
+            
+            [self showError:errorMessage];
+        }
+    } else {
+        [self showError:@"Oops, we cannot connect to the server at this time, please try again"];
     }
-    
-    //[self getToolsForUser: self.userId];
-    
-    //[self.tableView reloadData];
-    // Display success message and then take user to My Tools page.
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -277,6 +276,29 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) displayToastMessage: (NSString *) message {
+    UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:nil, nil];
+    [toast show];
+    
+    int duration = 1; // duration in seconds
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [toast dismissWithClickedButtonIndex:0 animated:YES];
+    });
+}
+
+- (void)showError:(NSString*)errorMsg {
+    NSString *msgTitle = @"Error Message";
+    
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:msgTitle message:errorMsg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    
+    [error show];
 }
 
 /*

@@ -98,11 +98,22 @@
             
             NSLog(@"Change Tool Status Response: %@", responseData);
             
-            self.result = [responseData valueForKey:@"status"];
-            
-            self.toolDetails = [responseData valueForKey:@"powerTool"];
-            
-            [self performSelectorOnMainThread:@selector(updateScreenData) withObject:nil waitUntilDone:NO];
+            if ([responseData count] > 0) {
+                self.result = [responseData valueForKey:@"status"];
+                
+                if ([self.result isEqualToString:@"SUCCESS"]) {
+                    self.toolDetails = [responseData valueForKey:@"powerTool"];
+                    
+                    [self performSelectorOnMainThread:@selector(updateScreenData) withObject:nil waitUntilDone:NO];
+                    
+                } else {
+                    NSString *errorMessage = [responseData valueForKey:@"errorMessage"];
+                    
+                    [self showError:errorMessage];
+                }
+            } else {
+                [self showError:@"Oops, we cannot connect to the server at this time, please try again"];
+            }
         }];
     }
 }
@@ -138,9 +149,20 @@
             
             NSLog(@"Delete Tool Response: %@", responseData);
             
-            self.result = [responseData valueForKey:@"status"];
-            
-            [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
+            if ([responseData count] > 0) {
+                self.result = [responseData valueForKey:@"status"];
+                
+                if ([self.result isEqualToString:@"SUCCESS"]) {
+                    [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
+                    
+                } else {
+                    NSString *errorMessage = [responseData valueForKey:@"errorMessage"];
+                    
+                    [self showError:errorMessage];
+                }
+            } else {
+                [self showError:@"Oops, we cannot connect to the server at this time, please try again"];
+            }
         }];
     }
 }

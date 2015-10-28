@@ -44,15 +44,29 @@
         
         [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
             
-            self.userTools = [responseData objectForKey:@"powerTools"];
+            if ([responseData count] > 0) {
+                NSString *status = [responseData objectForKey:@"status"];
+                
+                if ([status isEqualToString:@"SUCCESS"]) {
+                    self.userTools = [responseData objectForKey:@"powerTools"];
+                    
+                    NSSortDescriptor *creationDateDescription = [[NSSortDescriptor alloc] initWithKey:@"creationdate" ascending:NO];
+                    
+                    NSArray *sortDescriptors = @[creationDateDescription];
+                    
+                    self.userTools = [self.userTools sortedArrayUsingDescriptors:sortDescriptors];
+                    
+                    [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
+                }
+            } else {
+                // Only show the error if user has explicitly asked for page refresh, otherwise do not display any error
+                if (self.refreshButtonPressed) {
+                    self.refreshButtonPressed = FALSE;
+                    
+                    [self performSelectorOnMainThread:@selector(showError:) withObject:@"Oops, we cannot connect to the server at this time, please try again" waitUntilDone:NO];
+                }
+            }
             
-            NSSortDescriptor *creationDateDescription = [[NSSortDescriptor alloc] initWithKey:@"creationdate" ascending:NO];
-            
-            NSArray *sortDescriptors = @[creationDateDescription];
-            
-            self.userTools = [self.userTools sortedArrayUsingDescriptors:sortDescriptors];
-            
-            [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
         }];
         
     } else {
@@ -64,11 +78,11 @@
     }
 }
 
--(void)updateTableViewData {
+- (void) updateTableViewData {
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

@@ -87,16 +87,25 @@
 - (void) handleLoginResponse: (NSDictionary *) response {
     if([response count] > 0){
         
-        NSDictionary* userDetails = @{@"userId":[response objectForKey:@"userId"]};
+        NSString *status = [response objectForKey:@"status"];
         
-        [[NSUserDefaults standardUserDefaults] setObject:userDetails forKey:@"UserDetails"];
+        if ([status isEqualToString:@"SUCCESS"]) {
+            NSDictionary* userDetails = @{@"userId":[response objectForKey:@"userId"]};
+            [[NSUserDefaults standardUserDefaults] setObject:userDetails forKey:@"UserDetails"];
+            
+            [self performSegueWithIdentifier:@"LoginToSettings" sender:self];
+            
+        } else {
+            NSString *errorMessage = [response objectForKey:@"errorMessage"];
+            
+            [self showError:errorMessage];
+        }
         
     } else {
         [self showError:@"Oops, we cannot connect to the server at this time, please try again"];
+        
+        [self performSegueWithIdentifier:@"LoginToSettings" sender:self];
     }
-    
-    // Display success message and then take user to Settings page.
-    [self performSegueWithIdentifier:@"LoginToSettings" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
