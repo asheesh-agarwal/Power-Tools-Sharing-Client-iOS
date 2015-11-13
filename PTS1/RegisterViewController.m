@@ -27,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/registerUser";
+    //self.host = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/registerUser";
+    self.host = @"http://localhost:8080/registerUser";
     
     self.firstName.delegate = self;
     self.lastName.delegate = self;

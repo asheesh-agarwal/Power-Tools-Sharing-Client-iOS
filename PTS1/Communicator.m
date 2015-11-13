@@ -26,6 +26,8 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:JSONData];
     
+    [request setTimeoutInterval:15];
+    
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         
         NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *) response;

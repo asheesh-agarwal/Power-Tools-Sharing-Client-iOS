@@ -28,8 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.removeToolHost = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/removeTool";
-    self.updateToolStatusHost = @"http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/updateToolStatus";
+    //self.removeToolHost = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/removeTool";
+    //self.updateToolStatusHost = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/updateToolStatus";
+    
+    self.removeToolHost = @"http://localhost:8080/removeTool";
+    self.updateToolStatusHost = @"http://localhost:8080/updateToolStatus";
     
     self.communicator = [Communicator new];
     

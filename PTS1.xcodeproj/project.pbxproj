@@ -27,10 +27,21 @@
 		A662B1351BB2FB790056B702 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1341BB2FB790056B702 /* help.png */; };
 		A662B1371BB2FBC20056B702 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1361BB2FBC20056B702 /* information.png */; };
 		A662B1391BB2FBDE0056B702 /* faq.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1381BB2FBDE0056B702 /* faq.png */; };
+		A69C68E01BF5780200A34EB8 /* PTS1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C68DF1BF5780200A34EB8 /* PTS1UITests.m */; };
 		A6C1C27F1BD4612A005492A1 /* PublicToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */; };
 		A6C1C2821BD469AF005492A1 /* PublicToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2811BD469AF005492A1 /* PublicToolDetailsViewController.m */; };
 		A6C1C2851BD47B9C005492A1 /* AddToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2841BD47B9C005492A1 /* AddToolViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A69C68E21BF5780200A34EB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A63558751BB2034600C5276C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A635587C1BB2034600C5276C;
+			remoteInfo = PTS1;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A630FE541BD73E2400F4EB28 /* MyToolDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyToolDetailsViewController.h; sourceTree = "<group>"; };
@@ -62,6 +73,9 @@
 		A662B1341BB2FB790056B702 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
 		A662B1361BB2FBC20056B702 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		A662B1381BB2FBDE0056B702 /* faq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = faq.png; sourceTree = "<group>"; };
+		A69C68DD1BF5780200A34EB8 /* PTS1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PTS1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A69C68DF1BF5780200A34EB8 /* PTS1UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTS1UITests.m; sourceTree = "<group>"; };
+		A69C68E11BF5780200A34EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C1C27D1BD4612A005492A1 /* PublicToolsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicToolsTableViewController.h; sourceTree = "<group>"; };
 		A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PublicToolsTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6C1C2801BD469AF005492A1 /* PublicToolDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicToolDetailsViewController.h; sourceTree = "<group>"; };
@@ -78,6 +92,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A69C68DA1BF5780200A34EB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				A635587F1BB2034600C5276C /* PTS1 */,
+				A69C68DE1BF5780200A34EB8 /* PTS1UITests */,
 				A635587E1BB2034600C5276C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				A635587D1BB2034600C5276C /* PTS1.app */,
+				A69C68DD1BF5780200A34EB8 /* PTS1UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +169,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A69C68DE1BF5780200A34EB8 /* PTS1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				A69C68DF1BF5780200A34EB8 /* PTS1UITests.m */,
+				A69C68E11BF5780200A34EB8 /* Info.plist */,
+			);
+			path = PTS1UITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +198,24 @@
 			productReference = A635587D1BB2034600C5276C /* PTS1.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A69C68DC1BF5780200A34EB8 /* PTS1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A69C68E41BF5780200A34EB8 /* Build configuration list for PBXNativeTarget "PTS1UITests" */;
+			buildPhases = (
+				A69C68D91BF5780200A34EB8 /* Sources */,
+				A69C68DA1BF5780200A34EB8 /* Frameworks */,
+				A69C68DB1BF5780200A34EB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A69C68E31BF5780200A34EB8 /* PBXTargetDependency */,
+			);
+			name = PTS1UITests;
+			productName = PTS1UITests;
+			productReference = A69C68DD1BF5780200A34EB8 /* PTS1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,6 +228,10 @@
 					A635587C1BB2034600C5276C = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = X378EB65WE;
+					};
+					A69C68DC1BF5780200A34EB8 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = A635587C1BB2034600C5276C;
 					};
 				};
 			};
@@ -195,6 +249,7 @@
 			projectRoot = "";
 			targets = (
 				A635587C1BB2034600C5276C /* PTS1 */,
+				A69C68DC1BF5780200A34EB8 /* PTS1UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,6 +274,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A69C68DB1BF5780200A34EB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -240,7 +302,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A69C68D91BF5780200A34EB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A69C68E01BF5780200A34EB8 /* PTS1UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A69C68E31BF5780200A34EB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A635587C1BB2034600C5276C /* PTS1 */;
+			targetProxy = A69C68E21BF5780200A34EB8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A635588C1BB2034600C5276C /* Main.storyboard */ = {
@@ -368,6 +446,32 @@
 			};
 			name = Release;
 		};
+		A69C68E51BF5780200A34EB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PTS1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cs2048.asheesh.PTS1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PTS1;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		A69C68E61BF5780200A34EB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PTS1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cs2048.asheesh.PTS1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PTS1;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -388,6 +492,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A69C68E41BF5780200A34EB8 /* Build configuration list for PBXNativeTarget "PTS1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A69C68E51BF5780200A34EB8 /* Debug */,
+				A69C68E61BF5780200A34EB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
