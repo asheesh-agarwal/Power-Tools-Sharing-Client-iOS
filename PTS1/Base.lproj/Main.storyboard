@@ -56,7 +56,7 @@
         <scene sceneID="rX4-WD-y7n">
             <objects>
                 <viewController id="AbR-wY-ho5" customClass="AddToolViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4ih-Nc-pid">
+                    <view key="view" contentMode="scaleToFill" id="4ih-Nc-pid" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -86,6 +86,11 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                <size key="value" width="320" height="700"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Add Tool" id="TOP-OL-awA">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="aJ5-An-hRE"/>
@@ -261,7 +266,7 @@
         <scene sceneID="die-kI-Tvi">
             <objects>
                 <viewController id="gsC-1T-pxK" customClass="RegisterViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sNb-ou-tYa">
+                    <view key="view" contentMode="scaleToFill" id="sNb-ou-tYa" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -280,21 +285,21 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a Strong Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="iq9-kJ-uHZ">
-                                <rect key="frame" x="20" y="200" width="280" height="30"/>
+                                <rect key="frame" x="20" y="240" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter the Above Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="ab3-8H-Mrf">
-                                <rect key="frame" x="20" y="240" width="280" height="30"/>
+                                <rect key="frame" x="20" y="280" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="no" returnKeyType="join" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pHr-3M-rXL">
-                                <rect key="frame" x="20" y="300" width="280" height="40"/>
+                                <rect key="frame" x="20" y="360" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -312,7 +317,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MOP-Lk-1cS">
-                                <rect key="frame" x="20" y="360" width="280" height="40"/>
+                                <rect key="frame" x="20" y="420" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -329,16 +334,35 @@
                                     <action selector="cancelButtonPressed:" destination="gsC-1T-pxK" eventType="touchUpInside" id="tlX-sW-0M7"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Mobile Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="u9m-4N-GuY">
+                                <rect key="frame" x="63" y="160" width="237" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Valid Email Id" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="EmH-NC-bqJ">
-                                <rect key="frame" x="20" y="162" width="280" height="30"/>
+                                <rect key="frame" x="20" y="200" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+1" textAlignment="natural" minimumFontSize="17" id="V4C-PV-q7E">
+                                <rect key="frame" x="20" y="160" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                <size key="value" width="320" height="700"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="vIj-MB-t5k">
                         <barButtonItem key="backBarButtonItem" title="Back" id="TOe-ku-V7I"/>
@@ -348,6 +372,7 @@
                         <outlet property="emailId" destination="EmH-NC-bqJ" id="Yfh-Cn-qed"/>
                         <outlet property="firstName" destination="cAs-fy-tme" id="7GC-px-sZJ"/>
                         <outlet property="lastName" destination="A2O-AU-MEO" id="blA-YL-BDD"/>
+                        <outlet property="mobileNumber" destination="u9m-4N-GuY" id="mFP-VC-jo6"/>
                         <outlet property="password" destination="iq9-kJ-uHZ" id="6Nf-zg-EtD"/>
                         <segue destination="49e-Tb-3d3" kind="modal" identifier="RegisterToSettings" id="v2l-Ge-J63"/>
                     </connections>
@@ -423,7 +448,7 @@
         <scene sceneID="Nvu-cp-AwT">
             <objects>
                 <viewController id="uzV-dL-JJR" customClass="PublicToolDetailsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EKi-iC-AJ2">
+                    <view key="view" contentMode="scaleToFill" id="EKi-iC-AJ2" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -467,16 +492,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Since - " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HpY-aB-IEl">
-                                <rect key="frame" x="20" y="445" width="134" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number - " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HpY-aB-IEl">
+                                <rect key="frame" x="20" y="445" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xaa-W6-rox">
-                                <rect key="frame" x="154" y="445" width="138" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xaa-W6-rox">
+                                <rect key="frame" x="168" y="445" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -486,11 +511,16 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                <size key="value" width="320" height="600"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Tool Details" id="asj-bC-JRd"/>
                     <connections>
-                        <outlet property="toolDateLabel" destination="xaa-W6-rox" id="uVX-QY-Qyd"/>
                         <outlet property="toolImageView" destination="VUP-jJ-Kjy" id="yku-wI-klK"/>
+                        <outlet property="toolMobileNoLabel" destination="xaa-W6-rox" id="k3q-iQ-tMO"/>
                         <outlet property="toolNameLabel" destination="XUx-Mg-xum" id="SVx-7e-rBx"/>
                         <outlet property="toolStatusLabel" destination="gCS-de-yGJ" id="pLh-lU-uFf"/>
                     </connections>
@@ -503,7 +533,7 @@
         <scene sceneID="zuO-2X-ZmB">
             <objects>
                 <viewController id="fbb-ia-TWF" customClass="MyToolDetailsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aeF-Xo-qW7">
+                    <view key="view" contentMode="scaleToFill" id="aeF-Xo-qW7" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -586,6 +616,11 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                <size key="value" width="320" height="600"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="3IS-xP-ebv"/>
                     <connections>

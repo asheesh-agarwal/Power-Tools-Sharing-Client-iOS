@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *toolNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *toolImageView;
 @property (weak, nonatomic) IBOutlet UILabel *toolStatusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *toolDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *toolMobileNoLabel;
 
 
 @end
@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self configureToolDetails];
 }
@@ -29,13 +30,8 @@
     self.toolNameLabel.text = [self.toolDetails valueForKey:@"toolname"];
     self.toolImageView.image = [self getImageFromTempDirWithName: [self.toolDetails valueForKey:@"toolimagename"]];
     
-    NSNumber *timeInMillis = [self.toolDetails valueForKey:@"creationdate"];
-    NSDate *availableSince = [NSDate dateWithTimeIntervalSince1970:[timeInMillis doubleValue]];
-    
-    self.toolDateLabel.text = availableSince.description;
-    
-    NSLog(@"%@", availableSince);
-    
+    self.toolMobileNoLabel.text = [self.toolDetails valueForKey:@"mobilenumber"];
+        
     NSString *toolStatus = [self.toolDetails valueForKey:@"status"];
 
     if ([toolStatus isEqualToString:@"AVAILABLE"]) {

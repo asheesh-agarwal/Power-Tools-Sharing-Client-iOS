@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     //self.host = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/getPublicTools";
-    self.host = @"http://localhost:8080/getPublicTools";
+    self.host = @"http://10.0.0.6:8080/getPublicTools";
     
     self.refreshButtonPressed = FALSE;
     

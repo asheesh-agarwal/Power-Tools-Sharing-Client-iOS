@@ -29,9 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     //self.host = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/addTool";
-    self.host = @"http://localhost:8080/addTool";
+    self.host = @"http://10.0.0.6:8080/addTool";
     
     self.toolNameTextField.delegate = self;
     
@@ -159,6 +160,13 @@
     self.imageName = [self getImageName];
     
     [self storeImage:self.scaledImage InTempDirWithName:self.imageName];
+    
+    // Scroll the screen to make text field automatically visible.
+    UIScrollView *scrollView = (UIScrollView*)self.view;
+    [scrollView setContentOffset:CGPointMake(0, 200) animated:YES];
+    
+    // Move the pointer to the text field
+    [self.toolNameTextField becomeFirstResponder];
 }
 
 - (void) storeImage:(UIImage*) image InTempDirWithName: (NSString* ) imageName {

@@ -13,6 +13,7 @@
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
+@property (weak, nonatomic) IBOutlet UITextField *mobileNumber;
 @property (weak, nonatomic) IBOutlet UITextField *emailId;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPassword;
@@ -26,12 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     //self.host = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/registerUser";
-    self.host = @"http://localhost:8080/registerUser";
+    self.host = @"http://10.0.0.6:8080/registerUser";
     
     self.firstName.delegate = self;
     self.lastName.delegate = self;
+    self.mobileNumber.delegate = self;
     self.emailId.delegate = self;
     self.password.delegate = self;
     self.confirmPassword.delegate = self;
@@ -58,7 +61,7 @@
 
 
 - (void)registerUser {
-    NSDictionary *requestData = @{@"firstName":self.firstName.text, @"lastName":self.lastName.text, @"emailId":self.emailId.text, @"password":self.password.text, @"confirmPassword":self.confirmPassword.text};
+    NSDictionary *requestData = @{@"firstName":self.firstName.text, @"lastName":self.lastName.text, @"mobileNumber": [@"+1" stringByAppendingString:self.mobileNumber.text], @"emailId":self.emailId.text, @"password":self.password.text, @"confirmPassword":self.confirmPassword.text};
         
     [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
             
@@ -103,6 +106,11 @@
         
     } else if ((self.lastName.text == NULL || [self.lastName.text length] == 0)){
         [self showError:@"Enter your last name"];
+        
+        return false;
+        
+    } else if (self.mobileNumber.text == NULL || [self.mobileNumber.text length] == 0){
+        [self showError:@"Enter your mobile number"];
         
         return false;
         
@@ -153,11 +161,18 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    UIScrollView *scrollView = (UIScrollView*)self.view;
+    [scrollView setContentOffset:CGPointMake(0, 50) animated:YES];
+
     if (textField == self.firstName) {
         [textField resignFirstResponder];
         [self.lastName becomeFirstResponder];
         
     } else if (textField == self.lastName) {
+        [textField resignFirstResponder];
+        [self.mobileNumber becomeFirstResponder];
+        
+    } else if (textField == self.mobileNumber) {
         [textField resignFirstResponder];
         [self.emailId becomeFirstResponder];
         
