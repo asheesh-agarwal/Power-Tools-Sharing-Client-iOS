@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9C19DD8C5A9B418CEF5DD3A1902BF30E7B772BAF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9C19DD8C5A9B418CEF5DD3A1902BF30E7B772BAF" : 0,
+    "E1B991FBE1F05BBAB4C38B91C309485E4C904FDA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EDA81B8A-621F-44DF-9A1F-C76E01D38A6C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9C19DD8C5A9B418CEF5DD3A1902BF30E7B772BAF" : "PTS1\/",
+    "E1B991FBE1F05BBAB4C38B91C309485E4C904FDA" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PTS1",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PTS1.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/asheesh-agarwal\/Power-Tools-Sharing-Client-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9C19DD8C5A9B418CEF5DD3A1902BF30E7B772BAF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/asheesh-agarwal\/Uncle-Penny",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E1B991FBE1F05BBAB4C38B91C309485E4C904FDA"
+    }
+  ]
+}
