@@ -1,5 +1,7 @@
 # Power-Tools-Sharing-Client-iOS
 
+![Power Tool Sharing App](PTS1/Assets.xcassets/AppIcon.appiconset/pts@3x.png)
+
 Contains the iOS source code for Power Tools Sharing application.
 
 ### Background
