@@ -500,22 +500,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile No" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xaa-W6-rox">
-                                <rect key="frame" x="168" y="445" width="135" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES" allowsDirectInteraction="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="GZ5-PX-3K4">
                                 <rect key="frame" x="20" y="493" width="280" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H5o-Ix-FaF">
+                                <rect key="frame" x="168" y="445" width="135" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Mobile No"/>
+                                <connections>
+                                    <action selector="mobileNumberButtonPressed:" destination="uzV-dL-JJR" eventType="touchUpInside" id="YNL-Dr-XKg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -530,8 +529,8 @@
                     <size key="freeformSize" width="320" height="850"/>
                     <connections>
                         <outlet property="mapView" destination="GZ5-PX-3K4" id="OHF-9h-aAb"/>
+                        <outlet property="mobileNumberButton" destination="H5o-Ix-FaF" id="MHO-a8-Y43"/>
                         <outlet property="toolImageView" destination="VUP-jJ-Kjy" id="yku-wI-klK"/>
-                        <outlet property="toolMobileNoLabel" destination="xaa-W6-rox" id="k3q-iQ-tMO"/>
                         <outlet property="toolNameLabel" destination="XUx-Mg-xum" id="SVx-7e-rBx"/>
                         <outlet property="toolStatusLabel" destination="gCS-de-yGJ" id="pLh-lU-uFf"/>
                     </connections>

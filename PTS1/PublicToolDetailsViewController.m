@@ -12,8 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *toolNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *toolImageView;
 @property (weak, nonatomic) IBOutlet UILabel *toolStatusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *toolMobileNoLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *mobileNumberButton;
 @property MKPointAnnotation *toolAnnotation;
 
 @end
@@ -32,19 +32,16 @@
     [self configureToolDetails];
 }
 
-- (void) centerMapOnLocation: (CLLocation*) location {
-    CLLocationDistance regionRadius = 1000;
-    MKCoordinateRegion coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0);
-    
-    [_mapView setRegion:coordinateRegion animated:YES];
+- (IBAction)mobileNumberButtonPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"telprompt://" stringByAppendingString:[self.toolDetails valueForKey:@"mobilenumber"]]]];
 }
 
 - (void) configureToolDetails {
     self.toolNameLabel.text = [self.toolDetails valueForKey:@"toolname"];
     self.toolImageView.image = [self getImageFromTempDirWithName: [self.toolDetails valueForKey:@"toolimagename"]];
     
-    self.toolMobileNoLabel.text = [self.toolDetails valueForKey:@"mobilenumber"];
-        
+    [self.mobileNumberButton setTitle:[self.toolDetails valueForKey:@"mobilenumber"] forState:UIControlStateNormal];
+    
     NSString *toolStatus = [self.toolDetails valueForKey:@"status"];
 
     if ([toolStatus isEqualToString:@"AVAILABLE"]) {
@@ -71,7 +68,6 @@
     CLLocationCoordinate2D pinCoordinate = CLLocationCoordinate2DMake(latitude, longitude);
     _toolAnnotation.coordinate = pinCoordinate;
     _toolAnnotation.title = [[@"Tool \"" stringByAppendingString:self.toolNameLabel.text] stringByAppendingString:@"\""];
-    //_toolAnnotation.subtitle = self.toolMobileNoLabel.text;
     
     [_mapView addAnnotation:_toolAnnotation];
     
@@ -88,6 +84,13 @@
     }
     
     return image;
+}
+
+- (void) centerMapOnLocation: (CLLocation*) location {
+    CLLocationDistance regionRadius = 1000;
+    MKCoordinateRegion coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0);
+    
+    [_mapView setRegion:coordinateRegion animated:YES];
 }
 
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
