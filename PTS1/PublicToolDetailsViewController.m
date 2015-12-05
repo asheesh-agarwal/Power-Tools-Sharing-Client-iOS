@@ -13,7 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *toolImageView;
 @property (weak, nonatomic) IBOutlet UILabel *toolStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *toolMobileNoLabel;
-
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property MKPointAnnotation *toolAnnotation;
 
 @end
 
@@ -23,7 +24,19 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    _mapView.showsUserLocation = TRUE;
+    _mapView.delegate = self;
+    
+    _toolAnnotation = [[MKPointAnnotation alloc] init];
+    
     [self configureToolDetails];
+}
+
+- (void) centerMapOnLocation: (CLLocation*) location {
+    CLLocationDistance regionRadius = 1000;
+    MKCoordinateRegion coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0);
+    
+    [_mapView setRegion:coordinateRegion animated:YES];
 }
 
 - (void) configureToolDetails {
@@ -46,6 +59,22 @@
         
         [self.view setBackgroundColor:[[UIColor alloc] initWithRed:1 green:0.8 blue:0.8 alpha:1]];
     }
+    
+    double latitude = [[self.toolDetails valueForKey:@"latitude"] doubleValue];
+    double longitude = [[self.toolDetails valueForKey:@"longitude"] doubleValue];
+    
+    // Centering map around the tool location coordinates
+    CLLocation *toolLocation = [[CLLocation new] initWithLatitude:latitude longitude:longitude];
+    [self centerMapOnLocation:toolLocation];
+
+    // Setting up the annotation properties
+    CLLocationCoordinate2D pinCoordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    _toolAnnotation.coordinate = pinCoordinate;
+    _toolAnnotation.title = [[@"Tool \"" stringByAppendingString:self.toolNameLabel.text] stringByAppendingString:@"\""];
+    //_toolAnnotation.subtitle = self.toolMobileNoLabel.text;
+    
+    [_mapView addAnnotation:_toolAnnotation];
+    
 }
 
 - (UIImage*) getImageFromTempDirWithName: (NSString* ) imageName {
@@ -60,6 +89,47 @@
     
     return image;
 }
+
+-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    NSLog(@"%@", @"Region changed");
+}
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    NSLog(@"%@", @"user location changed");
+    [self.mapView setCenterCoordinate:userLocation.coordinate animated:YES];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView
+            viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // If the annotation is the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    // Handle any custom annotations.
+    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    {
+        // Try to dequeue an existing pin view first.
+        MKPinAnnotationView* pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"MKPinAnnotationView"];
+        
+        if (!pinView) {
+            // If an existing pin view was not available, create one.
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                      reuseIdentifier:@"MKPinAnnotationView"];
+            pinView.pinColor = MKPinAnnotationColorRed;
+            pinView.animatesDrop = YES;
+            pinView.canShowCallout = YES;
+            
+            // If appropriate, customize the callout by adding accessory views (code not shown).
+        } else
+            pinView.annotation = annotation;
+        
+        return pinView;
+    }
+    
+    return nil;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

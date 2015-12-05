@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     //self.host = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/loginUser";
-    self.host = @"http://10.0.0.6:8080/loginUser";
+    self.host = @"http://10.0.0.4:8080/loginUser";
     
     self.emailIdTextField.delegate = self;
     self.passwordTextField.delegate = self;

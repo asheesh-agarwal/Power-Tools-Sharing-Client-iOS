@@ -32,8 +32,8 @@
     //self.removeToolHost = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/removeTool";
     //self.updateToolStatusHost = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/updateToolStatus";
     
-    self.removeToolHost = @"http://10.0.0.6:8080/removeTool";
-    self.updateToolStatusHost = @"http://10.0.0.6:8080/updateToolStatus";
+    self.removeToolHost = @"http://10.0.0.4:8080/removeTool";
+    self.updateToolStatusHost = @"http://10.0.0.4:8080/updateToolStatus";
     
     self.communicator = [Communicator new];
     

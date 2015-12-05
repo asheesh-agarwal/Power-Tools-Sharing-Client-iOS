@@ -18,6 +18,7 @@
 		A635589C1BB204CD00C5276C /* SettingsUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A635589B1BB204CD00C5276C /* SettingsUITableViewController.m */; };
 		A639EE3D1BCDE5DA002B1FE6 /* MyToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A639EE3C1BCDE5DA002B1FE6 /* MyToolsTableViewController.m */; };
 		A639EE431BCE0FA1002B1FE6 /* power_tool.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A639EE421BCE0FA1002B1FE6 /* power_tool.jpeg */; };
+		A6481D921C13587A00E1879C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6481D911C13587A00E1879C /* MapKit.framework */; };
 		A64A6F721BB21852008F13B1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F711BB21852008F13B1 /* RegisterViewController.m */; };
 		A64A6F751BB21A90008F13B1 /* Communicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F741BB21A90008F13B1 /* Communicator.m */; };
 		A64A6F791BB2703A008F13B1 /* work-in-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = A64A6F781BB2703A008F13B1 /* work-in-progress.png */; };
@@ -29,6 +30,7 @@
 		A662B1371BB2FBC20056B702 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1361BB2FBC20056B702 /* information.png */; };
 		A662B1391BB2FBDE0056B702 /* faq.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1381BB2FBDE0056B702 /* faq.png */; };
 		A69C68E01BF5780200A34EB8 /* PTS1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A69C68DF1BF5780200A34EB8 /* PTS1UITests.m */; };
+		A6B5DF0F1C0AD581000FFA26 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B5DF0E1C0AD581000FFA26 /* CoreLocation.framework */; };
 		A6C1C27F1BD4612A005492A1 /* PublicToolsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */; };
 		A6C1C2821BD469AF005492A1 /* PublicToolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2811BD469AF005492A1 /* PublicToolDetailsViewController.m */; };
 		A6C1C2851BD47B9C005492A1 /* AddToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C2841BD47B9C005492A1 /* AddToolViewController.m */; };
@@ -63,6 +65,7 @@
 		A639EE3B1BCDE5DA002B1FE6 /* MyToolsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyToolsTableViewController.h; path = ../MyToolsTableViewController.h; sourceTree = "<group>"; };
 		A639EE3C1BCDE5DA002B1FE6 /* MyToolsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MyToolsTableViewController.m; path = ../MyToolsTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A639EE421BCE0FA1002B1FE6 /* power_tool.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = power_tool.jpeg; sourceTree = "<group>"; };
+		A6481D911C13587A00E1879C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A64A6F701BB21852008F13B1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		A64A6F711BB21852008F13B1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RegisterViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A64A6F731BB21A90008F13B1 /* Communicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communicator.h; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		A69C68DD1BF5780200A34EB8 /* PTS1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PTS1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69C68DF1BF5780200A34EB8 /* PTS1UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTS1UITests.m; sourceTree = "<group>"; };
 		A69C68E11BF5780200A34EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6B5DF0E1C0AD581000FFA26 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A6C1C27D1BD4612A005492A1 /* PublicToolsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicToolsTableViewController.h; sourceTree = "<group>"; };
 		A6C1C27E1BD4612A005492A1 /* PublicToolsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PublicToolsTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A6C1C2801BD469AF005492A1 /* PublicToolDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicToolDetailsViewController.h; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B5DF0F1C0AD581000FFA26 /* CoreLocation.framework in Frameworks */,
+				A6481D921C13587A00E1879C /* MapKit.framework in Frameworks */,
 				31BB22CA1380505D6F36F97C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +203,8 @@
 		C8D2B78F31614BC47B2CA6CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6481D911C13587A00E1879C /* MapKit.framework */,
+				A6B5DF0E1C0AD581000FFA26 /* CoreLocation.framework */,
 				C754E58383165EE7A14071A4 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -255,6 +263,11 @@
 					A635587C1BB2034600C5276C = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = X378EB65WE;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A69C68DC1BF5780200A34EB8 = {
 						CreatedOnToolsVersion = 7.1;

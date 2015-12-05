@@ -16,10 +16,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *toolImageView;
 @property (weak, nonatomic) IBOutlet UITextField *toolNameTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *donebarButton;
+@property CLLocationManager *locationManager;
 
-@property NSString* userId;
-@property UIImage* scaledImage;
-@property NSString* imageName;
+@property NSString *userId;
+@property UIImage *scaledImage;
+@property NSString *imageName;
+@property NSString *latitude;
+@property NSString *longitude;
 
 @property NSString *host;
 
@@ -32,7 +35,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     //self.host = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/addTool";
-    self.host = @"http://10.0.0.6:8080/addTool";
+    self.host = @"http://10.0.0.4:8080/addTool";
     
     self.toolNameTextField.delegate = self;
     
@@ -46,8 +49,15 @@
     
     if(userDetails != nil && [userDetails count] > 0){
         self.userId = [userDetails objectForKey:@"userId"];
-        
     }
+    
+    // Initialize Location Manager
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [_locationManager requestWhenInUseAuthorization];
+    
+    _locationManager.delegate = self;
 }
 
 - (void) addGestureToImage {
@@ -178,7 +188,7 @@
 }
 
 - (NSString*) getImageName {
-    NSString *imageName = [NSString stringWithFormat:@"%s%d", "Image_", [self generateRandomNumberWithlowerBound:0 upperBound:1000000]];
+    NSString *imageName = [NSString stringWithFormat:@"%s%d", "Image-", [self generateRandomNumberWithlowerBound:0 upperBound:1000000]];
 
     return imageName;
 }
@@ -245,7 +255,9 @@
 
 - (void) uploadToolOnServer {
     
-    NSDictionary *requestData = @{@"userId":self.userId, @"toolImageName":self.imageName, @"name":self.toolNameTextField.text};
+    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(self.scaledImage, 1.0f)];
+    
+    NSDictionary *requestData = @{@"userId":self.userId, @"toolImageName":self.imageName, @"name":self.toolNameTextField.text, @"latitude":self.latitude, @"longitude":self.longitude};
     
     [self.communicator communicateData:requestData ForURL:self.host completion:^(NSDictionary *responseData){
         
@@ -308,6 +320,69 @@
     UIAlertView *error = [[UIAlertView alloc] initWithTitle:msgTitle message:errorMsg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
     
     [error show];
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+// LocationManager delegate method which will be called if location services are disabled
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location services not authorized"
+                                                    message:@"This app needs you to authorize locations services to work."
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Settings", nil];
+    
+    [alert show];
+}
+
+// LocationManager delegate method which will be called whenever the location is updated
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        _longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        _latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        
+        NSLog(@"latitude: %@", _latitude);
+        NSLog(@"longitude: %@", _longitude);
+        
+        [_locationManager stopUpdatingLocation];
+    }
+}
+
+// LocationManager delegate method which will be called when the location service status is changed by user either by accepting or declining
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [_locationManager startUpdatingLocation];
+        
+    } else if (status == kCLAuthorizationStatusNotDetermined) {
+        [_locationManager requestWhenInUseAuthorization];
+        
+    } else if (status == kCLAuthorizationStatusDenied) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location services not authorized"
+                                                        message:@"This app needs you to authorize locations services to work."
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Settings", nil];
+        
+        [alert show];
+    } else
+        NSLog(@"Wrong location status");
+}
+
+// Method which is invoked whenever user makes a selection on a alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+        
+    } else if(buttonIndex == 1) {
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+        [[UIApplication sharedApplication] openURL: [NSURL URLWithString: UIApplicationOpenSettingsURLString]];
+    }
 }
 
 /*

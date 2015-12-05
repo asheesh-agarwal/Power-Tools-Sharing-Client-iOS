@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface AddToolViewController : UIViewController <UITextFieldDelegate>
+@interface AddToolViewController : UIViewController <UITextFieldDelegate, CLLocationManagerDelegate>
 
 @end

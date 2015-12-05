@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@import MapKit;
 
-@interface PublicToolDetailsViewController : UIViewController
+@interface PublicToolDetailsViewController : UIViewController <MKMapViewDelegate>
 
 @property NSDictionary* toolDetails;
 
