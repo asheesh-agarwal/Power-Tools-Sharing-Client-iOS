@@ -34,8 +34,8 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    //self.host = @"http://ec2-54-209-176-62.compute-1.amazonaws.com:8080/addTool";
-    self.host = @"http://10.0.0.4:8080/addTool";
+    self.host = @"http://ec2-54-85-12-64.compute-1.amazonaws.com:8080/addTool";
+    //self.host = @"http://localhost:8080/addTool";
     
     self.toolNameTextField.delegate = self;
     
