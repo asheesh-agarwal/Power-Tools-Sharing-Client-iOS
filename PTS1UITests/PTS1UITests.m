@@ -41,7 +41,9 @@
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.tabBars.buttons[@"Settings"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
+    
+    XCUIElementQuery *tablesQuery = app.tables;
+    [tablesQuery.staticTexts[@"Register"] tap];
     
     XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
     [enterYourFirstNameTextField tap];
@@ -51,9 +53,13 @@
     [enterYourLastNameTextField tap];
     [enterYourLastNameTextField typeText:@"Agarwal"];
     
+    XCUIElement *enterYourMobileNumberTextField = app.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
+    
     XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
     [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test@test.com"];
+    [enterYourValidEmailIdTextField typeText:@"test1@gmail.com"];
     
     XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
     [chooseAStrongPasswordSecureTextField tap];
@@ -62,22 +68,22 @@
     XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
     [reEnterTheAbovePasswordSecureTextField tap];
     [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
+    [app.scrollViews.buttons[@"Join"] tap];
     
-    [app.tables.staticTexts[@"Logout"] tap];
-    
-    XCUIElementQuery *tablesQuery = app.tables;
+    XCUIElement *logoutStaticText = tablesQuery.staticTexts[@"Logout"];
+    [logoutStaticText tap];
     [tablesQuery.staticTexts[@"Login"] tap];
     
     XCUIElement *enterYourEmailIdTextField = app.textFields[@"Enter your Email Id"];
     [enterYourEmailIdTextField tap];
-    [enterYourEmailIdTextField typeText:@"test@test.com"];
+    [enterYourEmailIdTextField typeText:@"test1@gmail.com"];
     
     XCUIElement *enterYourPasswordSecureTextField = app.secureTextFields[@"Enter Your Password"];
     [enterYourPasswordSecureTextField tap];
     [enterYourPasswordSecureTextField typeText:@"password"];
     [app.buttons[@"Login"] tap];
     
+    [NSThread sleepForTimeInterval:2];
     [tablesQuery.staticTexts[@"Logout"] tap];
 }
 
@@ -85,7 +91,9 @@
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.tabBars.buttons[@"Settings"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
+    
+    XCUIElement *registerStaticText = app.tables.staticTexts[@"Register"];
+    [registerStaticText tap];
     
     XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
     [enterYourFirstNameTextField tap];
@@ -95,9 +103,13 @@
     [enterYourLastNameTextField tap];
     [enterYourLastNameTextField typeText:@"Agarwal"];
     
+    XCUIElement *enterYourMobileNumberTextField = app.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
+    
     XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
     [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test1@test1.com"];
+    [enterYourValidEmailIdTextField typeText:@"test2@gmail.com"];
     
     XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
     [chooseAStrongPasswordSecureTextField tap];
@@ -106,42 +118,38 @@
     XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
     [reEnterTheAbovePasswordSecureTextField tap];
     [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
     
-    [app.tables.staticTexts[@"Logout"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
+    XCUIElement *joinButton = app.scrollViews.buttons[@"Join"];
+    [joinButton tap];
     
-    enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
+    XCUIApplication *app2 = app;
+    [app2.tables.staticTexts[@"Logout"] tap];
+    [registerStaticText tap];
     [enterYourFirstNameTextField tap];
-    [enterYourFirstNameTextField typeText:@"Rahul"];
-    
-    enterYourLastNameTextField = app.textFields[@"Enter Your Last Name"];
+    [enterYourFirstNameTextField typeText:@"Asheesh"];
     [enterYourLastNameTextField tap];
-    [enterYourLastNameTextField tap];
-    [enterYourLastNameTextField typeText:@"Kumar"];
-    
-    enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
+    [enterYourLastNameTextField typeText:@"Agarwal"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
     [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test1@test1.com"];
-    
-    chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
+    [enterYourValidEmailIdTextField typeText:@"test2@gmail.com"];
     [chooseAStrongPasswordSecureTextField tap];
     [chooseAStrongPasswordSecureTextField typeText:@"password"];
-    
-    reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
     [reEnterTheAbovePasswordSecureTextField tap];
     [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
+    [joinButton tap];
     [reEnterTheAbovePasswordSecureTextField tap];
-    
-    [app.buttons[@"Cancel"] tap];
+    //[app.alerts[@"Error Message"].collectionViews.buttons[@"Dismiss"] tap];
+    [app2.buttons[@"Cancel"] tap];
 }
 
 - (void)testFailedUserLoginWithWrongEmailId {
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.tabBars.buttons[@"Settings"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
+    
+    XCUIElementQuery *tablesQuery = app.tables;
+    [tablesQuery.staticTexts[@"Register"] tap];
     
     XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
     [enterYourFirstNameTextField tap];
@@ -151,9 +159,13 @@
     [enterYourLastNameTextField tap];
     [enterYourLastNameTextField typeText:@"Agarwal"];
     
+    XCUIElement *enterYourMobileNumberTextField = app.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
+    
     XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
     [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test2@test2.com"];
+    [enterYourValidEmailIdTextField typeText:@"test3@gmail.com"];
     
     XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
     [chooseAStrongPasswordSecureTextField tap];
@@ -162,21 +174,20 @@
     XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
     [reEnterTheAbovePasswordSecureTextField tap];
     [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
-    
-    [app.tables.staticTexts[@"Logout"] tap];
-    [app.tables.staticTexts[@"Login"] tap];
+    [app.scrollViews.buttons[@"Join"] tap];
+    [tablesQuery.staticTexts[@"Logout"] tap];
+    [tablesQuery.staticTexts[@"Login"] tap];
     
     XCUIElement *enterYourEmailIdTextField = app.textFields[@"Enter your Email Id"];
     [enterYourEmailIdTextField tap];
-    [enterYourEmailIdTextField typeText:@"test@test2.com"];
+    [enterYourEmailIdTextField typeText:@"test3@gm.com"];
     
     XCUIElement *enterYourPasswordSecureTextField = app.secureTextFields[@"Enter Your Password"];
     [enterYourPasswordSecureTextField tap];
     [enterYourPasswordSecureTextField typeText:@"password"];
     [app.buttons[@"Login"] tap];
     [enterYourPasswordSecureTextField tap];
-
+    //[app.alerts[@"Error Message"].collectionViews.buttons[@"Dismiss"] tap];
     [app.buttons[@"Cancel"] tap];
 }
 
@@ -184,7 +195,9 @@
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.tabBars.buttons[@"Settings"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
+    
+    XCUIElementQuery *tablesQuery = app.tables;
+    [tablesQuery.staticTexts[@"Register"] tap];
     
     XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
     [enterYourFirstNameTextField tap];
@@ -194,9 +207,15 @@
     [enterYourLastNameTextField tap];
     [enterYourLastNameTextField typeText:@"Agarwal"];
     
+    XCUIElement *enterYourMobileNumberTextField = app.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
+    
     XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
     [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test3@test3.com"];
+    [enterYourValidEmailIdTextField tap];
+    [enterYourValidEmailIdTextField typeText:@"test4@gmail.com"];
     
     XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
     [chooseAStrongPasswordSecureTextField tap];
@@ -205,227 +224,204 @@
     XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
     [reEnterTheAbovePasswordSecureTextField tap];
     [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
-    
-    [app.tables.staticTexts[@"Logout"] tap];
-    [app.tables.staticTexts[@"Login"] tap];
+    [app.scrollViews.buttons[@"Join"] tap];
+    [tablesQuery.staticTexts[@"Logout"] tap];
+    [tablesQuery.staticTexts[@"Login"] tap];
     
     XCUIElement *enterYourEmailIdTextField = app.textFields[@"Enter your Email Id"];
     [enterYourEmailIdTextField tap];
-    [enterYourEmailIdTextField typeText:@"test3@test3.com"];
+    [enterYourEmailIdTextField typeText:@"test4@gmail.com"];
     
     XCUIElement *enterYourPasswordSecureTextField = app.secureTextFields[@"Enter Your Password"];
     [enterYourPasswordSecureTextField tap];
     [enterYourPasswordSecureTextField typeText:@"pass"];
     [app.buttons[@"Login"] tap];
     [enterYourPasswordSecureTextField tap];
-    
+    //[app.alerts[@"Error Message"].collectionViews.buttons[@"Dismiss"] tap];
     [app.buttons[@"Cancel"] tap];
 }
 
 - (void)testAddMyTool {
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
-    [app.tabBars.buttons[@"Settings"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
-    
-    XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
-    [enterYourFirstNameTextField tap];
-    [enterYourFirstNameTextField typeText:@"Asheesh"];
-    
-    XCUIElement *enterYourLastNameTextField = app.textFields[@"Enter Your Last Name"];
-    [enterYourLastNameTextField tap];
-    [enterYourLastNameTextField typeText:@"Agarwal"];
-    
-    XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
-    [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test4@test4.com"];
-    
-    XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
-    [chooseAStrongPasswordSecureTextField tap];
-    [chooseAStrongPasswordSecureTextField typeText:@"password"];
-    
-    XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
-    [reEnterTheAbovePasswordSecureTextField tap];
-    [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
-    
-    [app.tables.staticTexts[@"Logout"] tap];
-    
-    XCUIElementQuery *tabBarsQuery = app.tabBars;
-    XCUIElement *myToolsButton = tabBarsQuery.buttons[@"My Tools"];
-    [myToolsButton tap];
-    
-    XCUIElement *myToolsNavigationBar = app.navigationBars[@"My Tools"];
-    XCUIElement *addButton = myToolsNavigationBar.buttons[@"Add"];
-    [addButton tap];
-    [app.alerts[@"Error Message"].collectionViews.buttons[@"Dismiss"] tap];
-    [tabBarsQuery.buttons[@"Settings"] tap];
-    
-    XCUIElementQuery *tablesQuery = app.tables;
-    [tablesQuery.staticTexts[@"Login"] tap];
-    
-    XCUIElement *enterYourEmailIdTextField = app.textFields[@"Enter your Email Id"];
-    [enterYourEmailIdTextField tap];
-    [enterYourEmailIdTextField typeText:@"test4@test4.com"];
-    
-    XCUIElement *enterYourPasswordSecureTextField = app.secureTextFields[@"Enter Your Password"];
-    [enterYourPasswordSecureTextField tap];
-    [enterYourPasswordSecureTextField typeText:@"password"];
-    [app.buttons[@"Login"] tap];
-    [myToolsButton tap];
-    [addButton tap];
-    
-    [[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element tap];
-    
-    [app.sheets.collectionViews.buttons[@"Choose Photo"] tap];
-    //[app.alerts[@"PTS1 Would Like to Access Your Photos"].collectionViews.buttons[@"OK"] tap];
-    [tablesQuery.buttons[@"Camera Roll"] tap];
-    [app.collectionViews.cells[@"Photo, Landscape, August 08, 2012, 2:55 PM"] tap];
-    
-    XCUIElement *enterToolNameTextField = app.textFields[@"Enter Tool Name"];
-    [enterToolNameTextField tap];
-    [enterToolNameTextField typeText:@"First Tool"];
-    [app.navigationBars[@"Add Tool"].buttons[@"Done"] tap];
-    [myToolsNavigationBar.buttons[@"Refresh"] tap];
-    
-    [tabBarsQuery.buttons[@"Settings"] tap];
-    [tablesQuery.staticTexts[@"Logout"] tap];
-}
-
-- (void)testRemoveMyTool {
-    
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    [app.tabBars.buttons[@"Settings"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
-    
-    XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
-    [enterYourFirstNameTextField tap];
-    [enterYourFirstNameTextField typeText:@"Asheesh"];
-    
-    XCUIElement *enterYourLastNameTextField = app.textFields[@"Enter Your Last Name"];
-    [enterYourLastNameTextField tap];
-    [enterYourLastNameTextField typeText:@"Agarwal"];
-    
-    XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
-    [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test5@test5.com"];
-    
-    XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
-    [chooseAStrongPasswordSecureTextField tap];
-    [chooseAStrongPasswordSecureTextField typeText:@"password"];
-    
-    XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
-    [reEnterTheAbovePasswordSecureTextField tap];
-    [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
-    
-    [app.tables.staticTexts[@"Logout"] tap];
-    
-    XCUIElementQuery *tabBarsQuery = app.tabBars;
-    [tabBarsQuery.buttons[@"Settings"] tap];
-    
-    XCUIElementQuery *tablesQuery = app.tables;
-    [tablesQuery.cells.staticTexts[@"Login"] tap];
-    
-    XCUIElement *enterYourEmailIdTextField = app.textFields[@"Enter your Email Id"];
-    [enterYourEmailIdTextField tap];
-    [enterYourEmailIdTextField typeText:@"test5@test5.com"];
-    
-    XCUIElement *enterYourPasswordSecureTextField = app.secureTextFields[@"Enter Your Password"];
-    [enterYourPasswordSecureTextField tap];
-    [enterYourPasswordSecureTextField typeText:@"password"];
-    [app.buttons[@"Login"] tap];
-    [tabBarsQuery.buttons[@"My Tools"] tap];
-    
-    XCUIElement *myToolsNavigationBar = app.navigationBars[@"My Tools"];
-    [myToolsNavigationBar.buttons[@"Add"] tap];
-    [[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element tap];
-    
-    [app.sheets.collectionViews.buttons[@"Choose Photo"] tap];
-    [tablesQuery.buttons[@"Camera Roll"] tap];
-    [app.collectionViews.cells[@"Photo, Landscape, August 08, 2012, 2:55 PM"] tap];
-    
-    XCUIElement *enterToolNameTextField = app.textFields[@"Enter Tool Name"];
-    [enterToolNameTextField tap];
-    [enterToolNameTextField typeText:@"second tool"];
-    [app.navigationBars[@"Add Tool"].buttons[@"Done"] tap];
-    [myToolsNavigationBar.buttons[@"Refresh"] tap];
-    [tablesQuery.staticTexts[@"Available"] tap];
-    [app.buttons[@"Delete Tool"] tap];
-    
-    [NSThread sleepForTimeInterval:2];
-    
-    [app.buttons[@"Cancel"] tap];
-    [tablesQuery.staticTexts[@"Logout"] tap];
-}
-
-- (void)testChangeMyToolStatus {
-    
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    [app.tabBars.buttons[@"Settings"] tap];
-    [app.tables.staticTexts[@"Register"] tap];
-    
-    XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
-    [enterYourFirstNameTextField tap];
-    [enterYourFirstNameTextField typeText:@"Asheesh"];
-    
-    XCUIElement *enterYourLastNameTextField = app.textFields[@"Enter Your Last Name"];
-    [enterYourLastNameTextField tap];
-    [enterYourLastNameTextField typeText:@"Agarwal"];
-    
-    XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
-    [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"test6@test6.com"];
-    
-    XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
-    [chooseAStrongPasswordSecureTextField tap];
-    [chooseAStrongPasswordSecureTextField typeText:@"password"];
-    
-    XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
-    [reEnterTheAbovePasswordSecureTextField tap];
-    [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
-    [[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0].buttons[@"Join"] tap];
-    
-    [app.tables.staticTexts[@"Logout"] tap];
-    
     XCUIElementQuery *tabBarsQuery = app.tabBars;
     XCUIElement *settingsButton = tabBarsQuery.buttons[@"Settings"];
     [settingsButton tap];
     
     XCUIElementQuery *tablesQuery = app.tables;
+    [tablesQuery.staticTexts[@"Register"] tap];
+    
+    XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
+    [enterYourFirstNameTextField tap];
+    [enterYourFirstNameTextField typeText:@"Asheesh"];
+    
+    XCUIElement *enterYourLastNameTextField = app.textFields[@"Enter Your Last Name"];
+    [enterYourLastNameTextField tap];
+    [enterYourLastNameTextField typeText:@"Agarwal"];
+    
+    XCUIElement *enterYourMobileNumberTextField = app.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
+    
+    XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
+    [enterYourValidEmailIdTextField tap];
+    [enterYourValidEmailIdTextField typeText:@"test5@gmail.com"];
+    
+    XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
+    [chooseAStrongPasswordSecureTextField tap];
+    [chooseAStrongPasswordSecureTextField typeText:@"password"];
+    
+    XCUIElement *reEnterTheAbovePasswordSecureTextField = app.secureTextFields[@"Re-enter the Above Password"];
+    [reEnterTheAbovePasswordSecureTextField tap];
+    [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
+    [app.scrollViews.buttons[@"Join"] tap];
+    [tabBarsQuery.buttons[@"My Tools"] tap];
+    
+    XCUIElement *myToolsNavigationBar = app.navigationBars[@"My Tools"];
+    [myToolsNavigationBar.buttons[@"Add"] tap];
+    [[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:2] childrenMatchingType:XCUIElementTypeOther].element tap];
+    [app.sheets.collectionViews.buttons[@"Choose Photo"] tap];
+    [tablesQuery.buttons[@"Camera Roll"] tap];
+    [app.collectionViews.cells[@"Photo, Landscape, March 12, 2011, 7:17 PM"] tap];
+    [app.textFields[@"Enter Tool Name"] typeText:@"First Tool"];
+    [app.navigationBars[@"Add Tool"].buttons[@"Done"] tap];
+    [myToolsNavigationBar.buttons[@"Refresh"] tap];
+    [tablesQuery.staticTexts[@"First Tool"] tap];
+    [app.navigationBars[@"MyToolDetailsView"].buttons[@"My Tools"] tap];
+    [settingsButton tap];
+    [tablesQuery.staticTexts[@"Logout"] tap];
+}
+
+- (void)testRemoveMyTool {
+    
+    XCUIApplication *app2 = [[XCUIApplication alloc] init];
+    XCUIElement *settingsButton = app2.tabBars.buttons[@"Settings"];
+    [settingsButton tap];
+    
+    XCUIElementQuery *tablesQuery = app2.tables;
+    [tablesQuery.staticTexts[@"Register"] tap];
+    
+    XCUIElement *enterYourFirstNameTextField = app2.textFields[@"Enter Your First Name"];
+    [enterYourFirstNameTextField tap];
+    [enterYourFirstNameTextField typeText:@"Asheesh"];
+    
+    XCUIElement *enterYourLastNameTextField = app2.textFields[@"Enter Your Last Name"];
+    [enterYourLastNameTextField tap];
+    [enterYourLastNameTextField typeText:@"Agarwal"];
+    
+    XCUIElement *enterYourMobileNumberTextField = app2.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
+    
+    XCUIElement *enterYourValidEmailIdTextField = app2.textFields[@"Enter Your Valid Email Id"];
+    [enterYourValidEmailIdTextField tap];
+    [enterYourValidEmailIdTextField typeText:@"test6@gmail.com"];
+    
+    XCUIElement *chooseAStrongPasswordSecureTextField = app2.secureTextFields[@"Choose a Strong Password"];
+    [chooseAStrongPasswordSecureTextField tap];
+    [chooseAStrongPasswordSecureTextField typeText:@"password"];
+    
+    XCUIElement *reEnterTheAbovePasswordSecureTextField = app2.secureTextFields[@"Re-enter the Above Password"];
+    [reEnterTheAbovePasswordSecureTextField tap];
+    [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
+    
+    XCUIApplication *app = app2;
+    [app.scrollViews.buttons[@"Join"] tap];
+    
+    XCUIElement *myToolsButton = app.tabBars.buttons[@"My Tools"];
+    [myToolsButton tap];
+    
+    XCUIElement *myToolsNavigationBar = app.navigationBars[@"My Tools"];
+    [myToolsNavigationBar.buttons[@"Add"] tap];
+    [[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:2] childrenMatchingType:XCUIElementTypeOther].element tap];
+    [app.sheets.collectionViews.buttons[@"Choose Photo"] tap];
+    [tablesQuery.buttons[@"Camera Roll"] tap];
+    [app.collectionViews.cells[@"Photo, Landscape, March 12, 2011, 4:17 PM"] tap];
+    [app2.textFields[@"Enter Tool Name"] typeText:@"Tool Added For Removal"];
+    [app.navigationBars[@"Add Tool"].buttons[@"Done"] tap];
+    [myToolsNavigationBar.buttons[@"Refresh"] tap];
+    [tablesQuery.staticTexts[@"Tool Added For Removal"] tap];
+    [app.navigationBars[@"MyToolDetailsView"].buttons[@"My Tools"] tap];
+    [settingsButton tap];
+    
+    XCUIElement *logoutStaticText = tablesQuery.staticTexts[@"Logout"];
+    [logoutStaticText tap];
     [tablesQuery.staticTexts[@"Login"] tap];
     
     XCUIElement *enterYourEmailIdTextField = app.textFields[@"Enter your Email Id"];
     [enterYourEmailIdTextField tap];
-    [enterYourEmailIdTextField typeText:@"test6@test6.com"];
+    [enterYourEmailIdTextField typeText:@"test6@gmail.com"];
     
     XCUIElement *enterYourPasswordSecureTextField = app.secureTextFields[@"Enter Your Password"];
     [enterYourPasswordSecureTextField tap];
     [enterYourPasswordSecureTextField typeText:@"password"];
     [app.buttons[@"Login"] tap];
-    [tabBarsQuery.buttons[@"My Tools"] tap];
+    [myToolsButton tap];
+    [tablesQuery.staticTexts[@"Tool Added For Removal"] tap];
+    [app2.buttons[@"Delete Tool"] tap];
+    
+    [NSThread sleepForTimeInterval:2];
+    
+    [app.buttons[@"Cancel"] tap];
+    [logoutStaticText tap];
+}
+
+- (void)testChangeMyToolStatus {
+    
+    XCUIApplication *app2 = [[XCUIApplication alloc] init];
+    XCUIElement *settingsButton = app2.tabBars.buttons[@"Settings"];
+    [settingsButton tap];
+    
+    XCUIElementQuery *tablesQuery = app2.tables;
+    [tablesQuery.staticTexts[@"Register"] tap];
+    
+    XCUIElement *enterYourFirstNameTextField = app2.textFields[@"Enter Your First Name"];
+    [enterYourFirstNameTextField tap];
+    [enterYourFirstNameTextField typeText:@"Asheesh"];
+    
+    XCUIElement *enterYourLastNameTextField = app2.textFields[@"Enter Your Last Name"];
+    [enterYourLastNameTextField tap];
+    [enterYourLastNameTextField typeText:@"Agarwal"];
+    
+    XCUIElement *enterYourMobileNumberTextField = app2.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
+    
+    XCUIElement *enterYourValidEmailIdTextField = app2.textFields[@"Enter Your Valid Email Id"];
+    [enterYourValidEmailIdTextField tap];
+    [enterYourValidEmailIdTextField typeText:@"test7@gmail.com"];
+    
+    XCUIElement *chooseAStrongPasswordSecureTextField = app2.secureTextFields[@"Choose a Strong Password"];
+    [chooseAStrongPasswordSecureTextField tap];
+    [chooseAStrongPasswordSecureTextField typeText:@"password"];
+    
+    XCUIElement *reEnterTheAbovePasswordSecureTextField = app2.secureTextFields[@"Re-enter the Above Password"];
+    [reEnterTheAbovePasswordSecureTextField tap];
+    [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
+    
+    XCUIApplication *app = app2;
+    [app.scrollViews.buttons[@"Join"] tap];
+    [[app.tables containingType:XCUIElementTypeOther identifier:@"SETTINGS"].element tap];
+    [app.tabBars.buttons[@"My Tools"] tap];
     
     XCUIElement *myToolsNavigationBar = app.navigationBars[@"My Tools"];
     [myToolsNavigationBar.buttons[@"Add"] tap];
-    [[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element tap];
+    [[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:2] childrenMatchingType:XCUIElementTypeOther].element tap];
     [app.sheets.collectionViews.buttons[@"Choose Photo"] tap];
     [tablesQuery.buttons[@"Camera Roll"] tap];
     [app.collectionViews.cells[@"Photo, Landscape, August 08, 2012, 2:55 PM"] tap];
-    
-    XCUIElement *enterToolNameTextField = app.textFields[@"Enter Tool Name"];
-    [enterToolNameTextField tap];
-    [enterToolNameTextField typeText:@"third tool"];
+    [app2.textFields[@"Enter Tool Name"] typeText:@"Tool Added For Status Change"];
     [app.navigationBars[@"Add Tool"].buttons[@"Done"] tap];
     [myToolsNavigationBar.buttons[@"Refresh"] tap];
-    [tablesQuery.staticTexts[@"third tool"] tap];
-    [app.buttons[@"Mark as Unavailable"] tap];
-    [NSThread sleepForTimeInterval:2];
-    
-    [app.buttons[@"Mark as Available"] tap];
+    [tablesQuery.staticTexts[@"Tool Added For Status Change"] tap];
+    [app2.buttons[@"Mark as Unavailable"] tap];
     [NSThread sleepForTimeInterval:2];
     
     [app.navigationBars[@"MyToolDetailsView"].buttons[@"My Tools"] tap];
+    [tablesQuery.staticTexts[@"Unavailable"] tap];
+    [app2.buttons[@"Mark as Available"] tap];
+    [NSThread sleepForTimeInterval:2];
+    
     [settingsButton tap];
     [tablesQuery.staticTexts[@"Logout"] tap];
 }
@@ -437,21 +433,26 @@
     XCUIElement *settingsButton = tabBarsQuery.buttons[@"Settings"];
     [settingsButton tap];
     
-    XCUIElementQuery *tablesQuery = app.tables;
-    XCUIElement *registerStaticText = tablesQuery.staticTexts[@"Register"];
+    XCUIElementQuery *tablesQuery2 = app.tables;
+    XCUIElement *registerStaticText = tablesQuery2.staticTexts[@"Register"];
     [registerStaticText tap];
     
     XCUIElement *enterYourFirstNameTextField = app.textFields[@"Enter Your First Name"];
     [enterYourFirstNameTextField tap];
-    [enterYourFirstNameTextField typeText:@"Public"];
+    [enterYourFirstNameTextField tap];
+    [enterYourFirstNameTextField typeText:@"Asheesh"];
     
     XCUIElement *enterYourLastNameTextField = app.textFields[@"Enter Your Last Name"];
     [enterYourLastNameTextField tap];
-    [enterYourLastNameTextField typeText:@"1"];
+    [enterYourLastNameTextField typeText:@"Agarwal"];
+    
+    XCUIElement *enterYourMobileNumberTextField = app.textFields[@"Enter Your Mobile Number"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
     
     XCUIElement *enterYourValidEmailIdTextField = app.textFields[@"Enter Your Valid Email Id"];
     [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"public1@gmail.com"];
+    [enterYourValidEmailIdTextField typeText:@"test8@gmail.com"];
     
     XCUIElement *chooseAStrongPasswordSecureTextField = app.secureTextFields[@"Choose a Strong Password"];
     [chooseAStrongPasswordSecureTextField tap];
@@ -461,48 +462,41 @@
     [reEnterTheAbovePasswordSecureTextField tap];
     [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
     
-    XCUIElement *window = [[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0];
-    XCUIElement *joinButton = window.buttons[@"Join"];
+    XCUIElement *joinButton = app.scrollViews.buttons[@"Join"];
     [joinButton tap];
     [tabBarsQuery.buttons[@"My Tools"] tap];
     
     XCUIElement *myToolsNavigationBar = app.navigationBars[@"My Tools"];
     [myToolsNavigationBar.buttons[@"Add"] tap];
-    [[[[window childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:2] childrenMatchingType:XCUIElementTypeOther].element tap];
+    [[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:2] childrenMatchingType:XCUIElementTypeOther].element tap];
     [app.sheets.collectionViews.buttons[@"Choose Photo"] tap];
-    [[[tablesQuery.cells containingType:XCUIElementTypeStaticText identifier:@"10"] childrenMatchingType:XCUIElementTypeTextField].element tap];
-    [app.collectionViews.cells[@"Photo, Landscape, October 09, 2009, 2:09 PM"] tap];
     
-    XCUIElement *enterToolNameTextField = app.textFields[@"Enter Tool Name"];
-    [enterToolNameTextField tap];
-    [enterToolNameTextField typeText:@"public1 tool1"];
+    XCUIElementQuery *tablesQuery = tablesQuery2;
+    [tablesQuery.buttons[@"Camera Roll"] tap];
+    [app.collectionViews.cells[@"Photo, Landscape, August 08, 2012, 11:52 AM"] tap];
+    [app.textFields[@"Enter Tool Name"] typeText:@"Test8 Tool Added"];
     [app.navigationBars[@"Add Tool"].buttons[@"Done"] tap];
-    [NSThread sleepForTimeInterval:2];
-    
     [myToolsNavigationBar.buttons[@"Refresh"] tap];
-    [tablesQuery.staticTexts[@"public1 tool1"] tap];
-    
-    XCUIElement *myToolsButton = app.navigationBars[@"MyToolDetailsView"].buttons[@"My Tools"];
-    [myToolsButton tap];
     [settingsButton tap];
     
     XCUIElement *logoutStaticText = tablesQuery.staticTexts[@"Logout"];
     [logoutStaticText tap];
     [registerStaticText tap];
     [enterYourFirstNameTextField tap];
-    [enterYourFirstNameTextField typeText:@"Public"];
+    [enterYourFirstNameTextField typeText:@"Asheesh"];
     [enterYourLastNameTextField tap];
-    [enterYourLastNameTextField typeText:@"2"];
+    [enterYourLastNameTextField typeText:@"Agarwal"];
+    [enterYourMobileNumberTextField tap];
+    [enterYourMobileNumberTextField typeText:@"9177082414"];
     [enterYourValidEmailIdTextField tap];
-    [enterYourValidEmailIdTextField typeText:@"public2@gmail.com"];
+    [enterYourValidEmailIdTextField typeText:@"test9@gmail.com"];
     [chooseAStrongPasswordSecureTextField tap];
     [chooseAStrongPasswordSecureTextField typeText:@"password"];
     [reEnterTheAbovePasswordSecureTextField tap];
     [reEnterTheAbovePasswordSecureTextField typeText:@"password"];
     [joinButton tap];
     [tabBarsQuery.buttons[@"Public Tools"] tap];
-    [tablesQuery.staticTexts[@"public1 tool1"] tap];
-
+    [tablesQuery.staticTexts[@"Test8 Tool Added"] tap];
     [app.navigationBars[@"Tool Details"].buttons[@"Public Tools"] tap];
     [settingsButton tap];
     [logoutStaticText tap];
