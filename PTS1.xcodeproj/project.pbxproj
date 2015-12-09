@@ -22,6 +22,28 @@
 		A64A6F721BB21852008F13B1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F711BB21852008F13B1 /* RegisterViewController.m */; };
 		A64A6F751BB21A90008F13B1 /* Communicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A6F741BB21A90008F13B1 /* Communicator.m */; };
 		A64A6F791BB2703A008F13B1 /* work-in-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = A64A6F781BB2703A008F13B1 /* work-in-progress.png */; };
+		A6524E6D1C17E53C00CDE519 /* libAWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E6C1C17E53C00CDE519 /* libAWSCore.a */; };
+		A6524E6F1C17E55900CDE519 /* libAWSS3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E6E1C17E55900CDE519 /* libAWSS3.a */; };
+		A6524E7E1C17E5AA00CDE519 /* libAWSAutoScaling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E701C17E5A900CDE519 /* libAWSAutoScaling.a */; };
+		A6524E7F1C17E5AA00CDE519 /* libAWSCloudWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E711C17E5A900CDE519 /* libAWSCloudWatch.a */; };
+		A6524E801C17E5AA00CDE519 /* libAWSCognito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E721C17E5A900CDE519 /* libAWSCognito.a */; };
+		A6524E811C17E5AA00CDE519 /* libAWSDynamoDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E731C17E5A900CDE519 /* libAWSDynamoDB.a */; };
+		A6524E821C17E5AA00CDE519 /* libAWSEC2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E741C17E5A900CDE519 /* libAWSEC2.a */; };
+		A6524E831C17E5AA00CDE519 /* libAWSElasticLoadBalancing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E751C17E5A900CDE519 /* libAWSElasticLoadBalancing.a */; };
+		A6524E841C17E5AA00CDE519 /* libAWSKinesis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E761C17E5A900CDE519 /* libAWSKinesis.a */; };
+		A6524E851C17E5AA00CDE519 /* libAWSLambda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E771C17E5A900CDE519 /* libAWSLambda.a */; };
+		A6524E861C17E5AA00CDE519 /* libAWSMachineLearning.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E781C17E5A900CDE519 /* libAWSMachineLearning.a */; };
+		A6524E871C17E5AA00CDE519 /* libAWSMobileAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E791C17E5A900CDE519 /* libAWSMobileAnalytics.a */; };
+		A6524E881C17E5AA00CDE519 /* libAWSSES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E7A1C17E5A900CDE519 /* libAWSSES.a */; };
+		A6524E891C17E5AA00CDE519 /* libAWSSimpleDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E7B1C17E5A900CDE519 /* libAWSSimpleDB.a */; };
+		A6524E8A1C17E5AA00CDE519 /* libAWSSNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E7C1C17E5A900CDE519 /* libAWSSNS.a */; };
+		A6524E8B1C17E5AA00CDE519 /* libAWSSQS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E7D1C17E5AA00CDE519 /* libAWSSQS.a */; };
+		A6524E8D1C17E61800CDE519 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E8C1C17E61800CDE519 /* libsqlite3.tbd */; };
+		A6524E8F1C17E62100CDE519 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E8E1C17E62100CDE519 /* libz.tbd */; };
+		A6524E911C17E62700CDE519 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E901C17E62700CDE519 /* CFNetwork.framework */; };
+		A6524E931C17E62F00CDE519 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E921C17E62F00CDE519 /* Security.framework */; };
+		A6524E951C17E63500CDE519 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E941C17E63500CDE519 /* SystemConfiguration.framework */; };
+		A6524E971C17E63D00CDE519 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6524E961C17E63D00CDE519 /* UIKit.framework */; };
 		A662B1271BB2F2F80056B702 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A662B1261BB2F2F80056B702 /* LoginViewController.m */; };
 		A662B12F1BB2FAEF0056B702 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B12E1BB2FAEF0056B702 /* login.png */; };
 		A662B1311BB2FAFF0056B702 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = A662B1301BB2FAFF0056B702 /* register.png */; };
@@ -71,6 +93,28 @@
 		A64A6F731BB21A90008F13B1 /* Communicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communicator.h; sourceTree = "<group>"; };
 		A64A6F741BB21A90008F13B1 /* Communicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communicator.m; sourceTree = "<group>"; };
 		A64A6F781BB2703A008F13B1 /* work-in-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-in-progress.png"; sourceTree = "<group>"; };
+		A6524E6C1C17E53C00CDE519 /* libAWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCore.a; path = "Pods/../build/Debug-iphoneos/libAWSCore.a"; sourceTree = "<group>"; };
+		A6524E6E1C17E55900CDE519 /* libAWSS3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSS3.a; path = "Pods/../build/Debug-iphoneos/libAWSS3.a"; sourceTree = "<group>"; };
+		A6524E701C17E5A900CDE519 /* libAWSAutoScaling.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSAutoScaling.a; path = "Pods/../build/Debug-iphoneos/libAWSAutoScaling.a"; sourceTree = "<group>"; };
+		A6524E711C17E5A900CDE519 /* libAWSCloudWatch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCloudWatch.a; path = "Pods/../build/Debug-iphoneos/libAWSCloudWatch.a"; sourceTree = "<group>"; };
+		A6524E721C17E5A900CDE519 /* libAWSCognito.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSCognito.a; path = "Pods/../build/Debug-iphoneos/libAWSCognito.a"; sourceTree = "<group>"; };
+		A6524E731C17E5A900CDE519 /* libAWSDynamoDB.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSDynamoDB.a; path = "Pods/../build/Debug-iphoneos/libAWSDynamoDB.a"; sourceTree = "<group>"; };
+		A6524E741C17E5A900CDE519 /* libAWSEC2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSEC2.a; path = "Pods/../build/Debug-iphoneos/libAWSEC2.a"; sourceTree = "<group>"; };
+		A6524E751C17E5A900CDE519 /* libAWSElasticLoadBalancing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSElasticLoadBalancing.a; path = "Pods/../build/Debug-iphoneos/libAWSElasticLoadBalancing.a"; sourceTree = "<group>"; };
+		A6524E761C17E5A900CDE519 /* libAWSKinesis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSKinesis.a; path = "Pods/../build/Debug-iphoneos/libAWSKinesis.a"; sourceTree = "<group>"; };
+		A6524E771C17E5A900CDE519 /* libAWSLambda.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSLambda.a; path = "Pods/../build/Debug-iphoneos/libAWSLambda.a"; sourceTree = "<group>"; };
+		A6524E781C17E5A900CDE519 /* libAWSMachineLearning.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSMachineLearning.a; path = "Pods/../build/Debug-iphoneos/libAWSMachineLearning.a"; sourceTree = "<group>"; };
+		A6524E791C17E5A900CDE519 /* libAWSMobileAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSMobileAnalytics.a; path = "Pods/../build/Debug-iphoneos/libAWSMobileAnalytics.a"; sourceTree = "<group>"; };
+		A6524E7A1C17E5A900CDE519 /* libAWSSES.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSSES.a; path = "Pods/../build/Debug-iphoneos/libAWSSES.a"; sourceTree = "<group>"; };
+		A6524E7B1C17E5A900CDE519 /* libAWSSimpleDB.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSSimpleDB.a; path = "Pods/../build/Debug-iphoneos/libAWSSimpleDB.a"; sourceTree = "<group>"; };
+		A6524E7C1C17E5A900CDE519 /* libAWSSNS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSSNS.a; path = "Pods/../build/Debug-iphoneos/libAWSSNS.a"; sourceTree = "<group>"; };
+		A6524E7D1C17E5AA00CDE519 /* libAWSSQS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWSSQS.a; path = "Pods/../build/Debug-iphoneos/libAWSSQS.a"; sourceTree = "<group>"; };
+		A6524E8C1C17E61800CDE519 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A6524E8E1C17E62100CDE519 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A6524E901C17E62700CDE519 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A6524E921C17E62F00CDE519 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A6524E941C17E63500CDE519 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A6524E961C17E63D00CDE519 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A662B1251BB2F2F80056B702 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A662B1261BB2F2F80056B702 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A662B12E1BB2FAEF0056B702 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
@@ -97,6 +141,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6524E971C17E63D00CDE519 /* UIKit.framework in Frameworks */,
+				A6524E951C17E63500CDE519 /* SystemConfiguration.framework in Frameworks */,
+				A6524E931C17E62F00CDE519 /* Security.framework in Frameworks */,
+				A6524E911C17E62700CDE519 /* CFNetwork.framework in Frameworks */,
+				A6524E8F1C17E62100CDE519 /* libz.tbd in Frameworks */,
+				A6524E8D1C17E61800CDE519 /* libsqlite3.tbd in Frameworks */,
+				A6524E7E1C17E5AA00CDE519 /* libAWSAutoScaling.a in Frameworks */,
+				A6524E7F1C17E5AA00CDE519 /* libAWSCloudWatch.a in Frameworks */,
+				A6524E801C17E5AA00CDE519 /* libAWSCognito.a in Frameworks */,
+				A6524E811C17E5AA00CDE519 /* libAWSDynamoDB.a in Frameworks */,
+				A6524E821C17E5AA00CDE519 /* libAWSEC2.a in Frameworks */,
+				A6524E831C17E5AA00CDE519 /* libAWSElasticLoadBalancing.a in Frameworks */,
+				A6524E841C17E5AA00CDE519 /* libAWSKinesis.a in Frameworks */,
+				A6524E851C17E5AA00CDE519 /* libAWSLambda.a in Frameworks */,
+				A6524E861C17E5AA00CDE519 /* libAWSMachineLearning.a in Frameworks */,
+				A6524E871C17E5AA00CDE519 /* libAWSMobileAnalytics.a in Frameworks */,
+				A6524E881C17E5AA00CDE519 /* libAWSSES.a in Frameworks */,
+				A6524E891C17E5AA00CDE519 /* libAWSSimpleDB.a in Frameworks */,
+				A6524E8A1C17E5AA00CDE519 /* libAWSSNS.a in Frameworks */,
+				A6524E8B1C17E5AA00CDE519 /* libAWSSQS.a in Frameworks */,
+				A6524E6F1C17E55900CDE519 /* libAWSS3.a in Frameworks */,
+				A6524E6D1C17E53C00CDE519 /* libAWSCore.a in Frameworks */,
 				A6B5DF0F1C0AD581000FFA26 /* CoreLocation.framework in Frameworks */,
 				A6481D921C13587A00E1879C /* MapKit.framework in Frameworks */,
 				31BB22CA1380505D6F36F97C /* libPods.a in Frameworks */,
@@ -203,6 +269,28 @@
 		C8D2B78F31614BC47B2CA6CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6524E961C17E63D00CDE519 /* UIKit.framework */,
+				A6524E941C17E63500CDE519 /* SystemConfiguration.framework */,
+				A6524E921C17E62F00CDE519 /* Security.framework */,
+				A6524E901C17E62700CDE519 /* CFNetwork.framework */,
+				A6524E8E1C17E62100CDE519 /* libz.tbd */,
+				A6524E8C1C17E61800CDE519 /* libsqlite3.tbd */,
+				A6524E701C17E5A900CDE519 /* libAWSAutoScaling.a */,
+				A6524E711C17E5A900CDE519 /* libAWSCloudWatch.a */,
+				A6524E721C17E5A900CDE519 /* libAWSCognito.a */,
+				A6524E731C17E5A900CDE519 /* libAWSDynamoDB.a */,
+				A6524E741C17E5A900CDE519 /* libAWSEC2.a */,
+				A6524E751C17E5A900CDE519 /* libAWSElasticLoadBalancing.a */,
+				A6524E761C17E5A900CDE519 /* libAWSKinesis.a */,
+				A6524E771C17E5A900CDE519 /* libAWSLambda.a */,
+				A6524E781C17E5A900CDE519 /* libAWSMachineLearning.a */,
+				A6524E791C17E5A900CDE519 /* libAWSMobileAnalytics.a */,
+				A6524E7A1C17E5A900CDE519 /* libAWSSES.a */,
+				A6524E7B1C17E5A900CDE519 /* libAWSSimpleDB.a */,
+				A6524E7C1C17E5A900CDE519 /* libAWSSNS.a */,
+				A6524E7D1C17E5AA00CDE519 /* libAWSSQS.a */,
+				A6524E6E1C17E55900CDE519 /* libAWSS3.a */,
+				A6524E6C1C17E53C00CDE519 /* libAWSCore.a */,
 				A6481D911C13587A00E1879C /* MapKit.framework */,
 				A6B5DF0E1C0AD581000FFA26 /* CoreLocation.framework */,
 				C754E58383165EE7A14071A4 /* libPods.a */,
@@ -519,6 +607,10 @@
 				INFOPLIST_FILE = PTS1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -547,6 +639,10 @@
 				INFOPLIST_FILE = PTS1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

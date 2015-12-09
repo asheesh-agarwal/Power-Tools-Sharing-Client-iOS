@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *toolStatusLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *mobileNumberButton;
-@property MKPointAnnotation *toolAnnotation;
+@property CLLocationCoordinate2D toolCoordinate;
+@property BOOL isOverlayDisplayed;
 
 @end
 
@@ -23,11 +24,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.isOverlayDisplayed = false;
     
     _mapView.showsUserLocation = TRUE;
     _mapView.delegate = self;
     
-    _toolAnnotation = [[MKPointAnnotation alloc] init];
+    double latitude = [[self.toolDetails valueForKey:@"latitude"] doubleValue];
+    double longitude = [[self.toolDetails valueForKey:@"longitude"] doubleValue];
+
+    _toolCoordinate = CLLocationCoordinate2DMake(latitude, longitude);
+
     
     [self configureToolDetails];
 }
@@ -38,7 +44,9 @@
 
 - (void) configureToolDetails {
     self.toolNameLabel.text = [self.toolDetails valueForKey:@"toolname"];
-    self.toolImageView.image = [self getImageFromTempDirWithName: [self.toolDetails valueForKey:@"toolimagename"]];
+    self.toolImageView.image = _toolImage;
+    
+    //self.toolImageView.image = [self getImageFromTempDirWithName: [self.toolDetails valueForKey:@"toolimagename"]];
     
     [self.mobileNumberButton setTitle:[self.toolDetails valueForKey:@"mobilenumber"] forState:UIControlStateNormal];
     
@@ -56,21 +64,6 @@
         
         [self.view setBackgroundColor:[[UIColor alloc] initWithRed:1 green:0.8 blue:0.8 alpha:1]];
     }
-    
-    double latitude = [[self.toolDetails valueForKey:@"latitude"] doubleValue];
-    double longitude = [[self.toolDetails valueForKey:@"longitude"] doubleValue];
-    
-    // Centering map around the tool location coordinates
-    CLLocation *toolLocation = [[CLLocation new] initWithLatitude:latitude longitude:longitude];
-    [self centerMapOnLocation:toolLocation];
-
-    // Setting up the annotation properties
-    CLLocationCoordinate2D pinCoordinate = CLLocationCoordinate2DMake(latitude, longitude);
-    _toolAnnotation.coordinate = pinCoordinate;
-    _toolAnnotation.title = [[@"Tool \"" stringByAppendingString:self.toolNameLabel.text] stringByAppendingString:@"\""];
-    
-    [_mapView addAnnotation:_toolAnnotation];
-    
 }
 
 - (UIImage*) getImageFromTempDirWithName: (NSString* ) imageName {
@@ -86,6 +79,55 @@
     return image;
 }
 
+-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    NSLog(@"%@", @"Region changed");
+}
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    // If overlay is displayed once on the map then do not add another overlay
+    if (_isOverlayDisplayed) {
+        return;
+    }
+    
+    NSLog(@"%@", @"user location changed");
+    
+    // Set the map centered towards user location
+    [self.mapView setCenterCoordinate:userLocation.coordinate animated:YES];
+    
+    // Display tool location along with the distance from the user location
+    [self displayToolLocationOnMapWithDistanceFrom:userLocation.coordinate];
+    
+    MKMapPoint * pointsArray = malloc(sizeof(CLLocationCoordinate2D)*2);
+    
+    pointsArray[0]= MKMapPointForCoordinate(_toolCoordinate);
+    pointsArray[1]= MKMapPointForCoordinate(userLocation.coordinate);
+    
+    MKPolyline *routeLine = [MKPolyline polylineWithPoints:pointsArray count:2];
+    free(pointsArray);
+    
+    [_mapView addOverlay:routeLine level:MKOverlayLevelAboveRoads];
+    _isOverlayDisplayed = true;
+}
+
+- (void) displayToolLocationOnMapWithDistanceFrom: (CLLocationCoordinate2D) userLocationCoordinate {
+    
+    CLLocation *toolLocation = [[CLLocation new] initWithLatitude:_toolCoordinate.latitude longitude:_toolCoordinate.longitude];
+    
+    CLLocation *userLocation = [[CLLocation alloc] initWithLatitude:userLocationCoordinate.latitude longitude:userLocationCoordinate.longitude];
+    
+    CLLocationDistance distance = [userLocation distanceFromLocation:toolLocation]/1000 * 0.62137;
+    
+    [self centerMapOnLocation:userLocation];
+    
+    // Setting up the annotation properties
+    MKPointAnnotation *_toolAnnotation = [[MKPointAnnotation alloc] init];
+    _toolAnnotation.coordinate = _toolCoordinate;
+    _toolAnnotation.title = [[@"Tool \"" stringByAppendingString:self.toolNameLabel.text] stringByAppendingString:@"\""];
+    _toolAnnotation.subtitle = [NSString stringWithFormat:@"%.1f %@", distance, @"miles away"];
+    
+    [_mapView addAnnotation:_toolAnnotation];
+}
+
 - (void) centerMapOnLocation: (CLLocation*) location {
     CLLocationDistance regionRadius = 1000;
     MKCoordinateRegion coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0);
@@ -93,13 +135,20 @@
     [_mapView setRegion:coordinateRegion animated:YES];
 }
 
--(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    NSLog(@"%@", @"Region changed");
-}
-
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    NSLog(@"%@", @"user location changed");
-    [self.mapView setCenterCoordinate:userLocation.coordinate animated:YES];
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    if([overlay isKindOfClass:[MKPolyline class]]){
+        
+        MKPolylineRenderer *lineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:(MKPolyline*)overlay];
+        
+        lineRenderer.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:0.2];
+        lineRenderer.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
+        lineRenderer.lineWidth = 2;
+        
+        return lineRenderer;
+    }
+    
+    return nil;
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
@@ -132,7 +181,6 @@
     
     return nil;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

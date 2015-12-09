@@ -9,6 +9,8 @@
 #import "MyToolDetailsViewController.h"
 #import "Communicator.h"
 #import "MyToolsTableViewController.h"
+#import <AWSS3/AWSS3.h>
+#import <AWSS3/AWSS3Service.h>
 
 @interface MyToolDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *toolNameTextLabel;
@@ -29,8 +31,8 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.removeToolHost = @"http://ec2-54-85-12-64.compute-1.amazonaws.com:8080/removeTool";
-    self.updateToolStatusHost = @"http://ec2-54-85-12-64.compute-1.amazonaws.com:8080/updateToolStatus";
+    self.removeToolHost = @"http://ec2-54-86-64-49.compute-1.amazonaws.com:8080/removeTool";
+    self.updateToolStatusHost = @"http://ec2-54-86-64-49.compute-1.amazonaws.com:8080/updateToolStatus";
     
     //self.removeToolHost = @"http://localhost:8080/removeTool";
     //self.updateToolStatusHost = @"http://localhost:8080/updateToolStatus";
@@ -39,7 +41,8 @@
     
     self.toolNameTextLabel.text = [self.toolDetails valueForKey:@"toolname"];
     
-    self.toolImageView.image = [self getImageFromTempDirWithName: [self.toolDetails valueForKey:@"toolimagename"]];
+    //self.toolImageView.image = [self getImageFromTempDirWithName: [self.toolDetails valueForKey:@"toolimagename"]];
+    self.toolImageView.image = _toolImage;
     
     [self updateStatusAndButtonText];
 }
@@ -159,6 +162,8 @@
                 if ([self.result isEqualToString:@"SUCCESS"]) {
                     [self performSelectorOnMainThread:@selector(updateTableViewData) withObject:nil waitUntilDone:NO];
                     
+                    [self deleteImageFromAWS];
+                    
                 } else {
                     NSString *errorMessage = [responseData valueForKey:@"errorMessage"];
                     
@@ -169,6 +174,16 @@
             }
         }];
     }
+}
+
+- (void) deleteImageFromAWS {
+    AWSS3DeleteObjectRequest *deleteRequest = [AWSS3DeleteObjectRequest new];
+    deleteRequest.bucket = @"power-tool-images";
+    deleteRequest.key = [self.toolDetails valueForKey:@"toolimagename"];
+    
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    
+    [s3 deleteObject:deleteRequest];
 }
 
 - (void) updateTableViewData {

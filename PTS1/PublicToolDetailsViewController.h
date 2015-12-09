@@ -12,5 +12,6 @@
 @interface PublicToolDetailsViewController : UIViewController <MKMapViewDelegate>
 
 @property NSDictionary* toolDetails;
+@property UIImage* toolImage;
 
 @end

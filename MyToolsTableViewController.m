@@ -9,12 +9,14 @@
 #import "MyToolsTableViewController.h"
 #import "Communicator.h"
 #import "MyToolDetailsViewController.h"
+#import <AWSS3/AWSS3.h>
 @import MobileCoreServices;
 
 @interface MyToolsTableViewController ()
 
 @property Communicator* communicator;
 @property NSArray* userTools;
+@property NSMutableDictionary *toolImageMapping;
 @property BOOL refreshButtonPressed;
 
 @property NSString *host;
@@ -26,12 +28,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.host = @"http://ec2-54-85-12-64.compute-1.amazonaws.com:8080/getMyTools";
+    self.host = @"http://ec2-54-86-64-49.compute-1.amazonaws.com:8080/getMyTools";
     //self.host = @"http://localhost:8080/getMyTools";
     
     self.refreshButtonPressed = FALSE;
     
     self.communicator = [Communicator new];
+    
+    self.toolImageMapping = [NSMutableDictionary new];
     
     [self getToolsForUser];
 }
@@ -166,12 +170,71 @@
             cell.detailTextLabel.textColor = [UIColor redColor];
         }
                 
-        cell.imageView.image = [self getImageFromTempDirWithName: [powerTool valueForKey:@"toolimagename"]];
+        //cell.imageView.image = [self getImageFromTempDirWithName: [powerTool valueForKey:@"toolimagename"]];
+        
+        [self getImageFromAWSWithName:[powerTool valueForKey:@"toolimagename"] completionBlock:^(BOOL succeeded, UIImage *image) {
+            if (succeeded) {
+                cell.imageView.image = image;
+            } else {
+                cell.imageView.image = image;
+            }
+            [_toolImageMapping setObject:image forKey:[powerTool valueForKey:@"toolimagename"]];
+        }];
     }
     
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
+}
+
+- (void) getImageFromAWSWithName:(NSString*) imageName completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    // Construct the NSURL for the download location.
+    NSString *downloadingFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:imageName];
+    NSURL *downloadingFileURL = [NSURL fileURLWithPath:downloadingFilePath];
+    
+    // Construct the download request.
+    AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+    
+    downloadRequest.bucket = @"power-tool-images";
+    downloadRequest.key = imageName;
+    downloadRequest.downloadingFileURL = downloadingFileURL;
+    
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+
+    [[transferManager download:downloadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]
+                                                           withBlock:^id(AWSTask *task) {
+                                                               if (task.error){
+                                                                   if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain]) {
+                                                                       switch (task.error.code) {
+                                                                           case AWSS3TransferManagerErrorCancelled:
+                                                                           case AWSS3TransferManagerErrorPaused:
+                                                                               break;
+                                                                               
+                                                                           default:
+                                                                               NSLog(@"Error: %@", task.error);
+                                                                               break;
+                                                                       }
+                                                                   } else {
+                                                                       // Unknown error.
+                                                                       NSLog(@"Error: %@", task.error);
+                                                                   }
+                                                               }
+                                                               
+                                                               if (task.result) {
+                                                                   AWSS3TransferManagerDownloadOutput *downloadOutput = task.result;
+                                                                   //File downloaded successfully.
+                                                                   
+                                                                   UIImage *toolImage = [UIImage imageWithContentsOfFile:downloadingFilePath];
+                                                                   
+                                                                   completionBlock(YES, toolImage);
+                                                                   return nil;
+                                                               }
+                                                               
+                                                               // Return default image
+                                                               completionBlock(NO, [UIImage imageNamed:@"question"]);
+                                                               return nil;
+                                                           }];
 }
 
 - (UIImage*) getImageFromTempDirWithName: (NSString* ) imageName {
@@ -217,7 +280,7 @@
         
         MyToolDetailsViewController* detailViewController = segue.destinationViewController;
         detailViewController.toolDetails = powerTool;
-        
+        detailViewController.toolImage = [_toolImageMapping objectForKey:[powerTool valueForKey:@"toolimagename"]];
     }
 }
 

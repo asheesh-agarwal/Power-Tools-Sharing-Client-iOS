@@ -8,6 +8,7 @@
 
 #import "AddToolViewController.h"
 #import "Communicator.h"
+#import <AWSS3/AWSS3.h>
 
 @import MobileCoreServices;
 
@@ -34,7 +35,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.host = @"http://ec2-54-85-12-64.compute-1.amazonaws.com:8080/addTool";
+    self.host = @"http://ec2-54-86-64-49.compute-1.amazonaws.com:8080/addTool";
     //self.host = @"http://localhost:8080/addTool";
     
     self.toolNameTextField.delegate = self;
@@ -254,8 +255,7 @@
 }
 
 - (void) uploadToolOnServer {
-    
-    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(self.scaledImage, 1.0f)];
+    [self uploadImageOnAWS];
     
     NSDictionary *requestData = @{@"userId":self.userId, @"toolImageName":self.imageName, @"name":self.toolNameTextField.text, @"latitude":self.latitude, @"longitude":self.longitude};
     
@@ -268,6 +268,35 @@
             
         });
     }];
+}
+
+- (void) uploadImageOnAWS {
+    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(self.scaledImage, 1.0f)];
+    
+    // create a local image that we can use to upload to s3
+    NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:self.imageName];
+    [imageData writeToFile:path atomically:YES];
+    
+    // once the image is saved we can use the path to create a local fileurl
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
+    
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = @"power-tool-images";
+    uploadRequest.key = self.imageName;
+    uploadRequest.body = url;
+    
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    
+    [[transferManager upload:uploadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]
+                                                       withBlock:^id(AWSTask *task) {
+                                                           
+                                                           if (task.error != nil) {
+                                                               NSLog(@"%s %@","AWS Error uploading :", uploadRequest.key);
+                                                           }
+                                                           else { NSLog(@"AWS Upload completed"); }
+                                                           
+                                                           return nil;
+                                                       }];
 }
 
 - (void) handleAddToolResponse: (NSDictionary *) response {

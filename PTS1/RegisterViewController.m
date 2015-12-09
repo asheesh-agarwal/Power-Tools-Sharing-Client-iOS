@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.host = @"http://ec2-54-85-12-64.compute-1.amazonaws.com:8080/registerUser";
+    self.host = @"http://ec2-54-86-64-49.compute-1.amazonaws.com:8080/registerUser";
     //self.host = @"http://localhost:8080/registerUser";
     
     self.firstName.delegate = self;
