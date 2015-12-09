@@ -11,8 +11,8 @@ These are expensive and almost never used. They should be shared.
 
 ### Challenge
 
-Part of the reason why nobody is winning in this space is because the for-profit nature of these, 
-bound to needing to lend these ites for money. Instead, build a non-for-profit sharing economy where 
+Part of the reason why nobody is winning in this space is because of for-profit nature of these applications, 
+which bound to lend these items for money. Instead, build a non-for-profit sharing economy where 
 individuals are just sharing without asking anything in return, around power tools, an app, site, etc.
 
 ### Current Status
@@ -29,9 +29,7 @@ to do following things:
 Mobile application calls the RESTful APIs exposed by server for all remote communication.
 
 ### Whats Next
-
-Next development interation will include below items:
-* UI/UX changes for better usability
+This project currently has no backlog.
 
 ### Technologies Used
 
